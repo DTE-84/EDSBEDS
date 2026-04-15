@@ -32,9 +32,9 @@ const ReviewTicker = () => {
     <section id="reviews" className="py-24 bg-black overflow-hidden relative">
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">What STL is Saying</h2>
-          <div className="flex justify-center gap-1 text-[var(--accent)]">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+          <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">What <span className="text-[var(--accent)]">STL</span> is Saying</h2>
+          <div className="flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="#FFD700" className="text-[#FFD700]" />)}
           </div>
           <p className="mt-4 text-[var(--text-dim)] uppercase tracking-widest text-sm font-bold">
             Over 200+ 5-Star Google Reviews
@@ -63,10 +63,14 @@ const ReviewTicker = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="text-[var(--accent)] hover:text-white transition-all text-sm font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 mx-auto group">
-            <span>Read all Reviews on Google</span>
-            <div className="w-8 h-[1px] bg-[var(--accent)] group-hover:w-12 transition-all" />
-          </button>
+          <a 
+            href="https://google.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="relative px-10 py-5 bg-[var(--accent)] text-black font-black uppercase tracking-widest text-sm text-center min-w-[280px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-b-4 border-l-4 border-black/20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-200 inline-flex items-center justify-center gap-3"
+          >
+            Read all Reviews on Google
+          </a>
         </div>
       </div>
 

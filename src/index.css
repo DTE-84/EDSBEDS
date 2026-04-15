@@ -4,8 +4,9 @@
 :root {
   --bg-primary: #0D0D0D;
   --bg-secondary: #1A1A1A;
-  --accent: #D4FF00;
-  --accent-soft: rgba(212, 255, 0, 0.1);
+  --accent: #FF3131; /* STL Cardinals Neon Red */
+  --accent-soft: rgba(255, 49, 49, 0.15);
+  --gold: #FFD700;
   --silver: #C0C0C0;
   --chrome: linear-gradient(135deg, #BDC3C7 0%, #2C3E50 100%);
   --text-main: #FFFFFF;
@@ -41,8 +42,9 @@ a:hover {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.4;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 /* Layout & Spacing Engine (Tailwind-style Utilities) */
@@ -135,20 +137,12 @@ h1, h2, h3, h4 {
 .lux-gradient { background: var(--chrome); }
 .neon-glow { text-shadow: 0 0 10px var(--accent); }
 .text-glow { text-shadow: 0 0 15px var(--accent-soft); }
-.text-shadow-sm { text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
-.text-shadow-lg { text-shadow: 0 4px 8px rgba(0,0,0,1); }
-.text-shadow-xl { text-shadow: 0 10px 20px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.8); }
-.text-halo { 
-  color: var(--bg-primary) !important; 
-  text-shadow: 
-    -1px -1px 0 var(--accent),  
-     1px -1px 0 var(--accent),
-    -1px  1px 0 var(--accent),
-     1px  1px 0 var(--accent),
-     0 0 12px var(--accent); 
-}
+.text-shadow-hard { text-shadow: 4px 4px 0 rgba(0,0,0,0.8); }
+.text-shadow-hard-accent { text-shadow: 3px 3px 0 var(--accent); }
+.neon-border { border: 1px solid var(--accent); box-shadow: 0 0 10px var(--accent-soft); }
+.glass-morphism { background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-glass); }
 .text-halo-lg {
-  color: var(--bg-primary) !important;
+  color: var(--text-main) !important;
   text-shadow: 
     -2px -2px 0 var(--accent),  
      2px -2px 0 var(--accent),
@@ -178,8 +172,9 @@ a, button, .clickable {
 
 .btn-neon:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 30px var(--accent-soft), 0 0 20px var(--accent);
-  color: var(--bg-primary); /* Keep text black for contrast */
+  box-shadow: 0 10px 40px var(--accent-soft), 0 0 30px var(--accent);
+  color: var(--bg-primary);
+  background: var(--text-main); /* White pop on hover for Red theme */
 }
 
 /* Ensure text and icons are always on top of the shimmer effect */
@@ -203,6 +198,42 @@ a, button, .clickable {
 
 .btn-neon:hover::after {
   opacity: 1;
+}
+
+.btn-bracket {
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.btn-bracket::before, .btn-bracket::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Bottom Left Bracket */
+.btn-bracket::before {
+  bottom: -4px;
+  left: -4px;
+  border-bottom-color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* Top Right Bracket */
+.btn-bracket::after {
+  top: -4px;
+  right: -4px;
+  border-top-color: var(--accent);
+  border-right-color: var(--accent);
+}
+
+.btn-bracket:hover::before, .btn-bracket:hover::after {
+  width: 25%;
+  height: 25%;
 }
 
 .glass-morphism:hover {

@@ -7,18 +7,20 @@ const AppointmentScheduler = () => {
         <div className="glass-morphism rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
           <div className="md:w-1/2 p-12 bg-[var(--bg-secondary)] flex flex-col justify-center border-r border-white/5">
             <span className="text-[var(--accent)] text-xs font-bold uppercase tracking-[0.3em] mb-4">Phase 03 // The Trial</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Book a 1-on-1 <br /><span className="text-[var(--accent)]">Sleep Trial</span></h2>
-            <p className="text-lg mb-8 font-medium text-[var(--text-dim)]">
-              Skip the crowd. Ed will personally walk you through our collection to find the mattress that fits your life. No pressure, just comfort.
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.9] text-shadow-hard-accent">
+              Book a 1-on-1 <br /><span className="text-white">Sleep Trial</span>
+            </h2>
+            <p className="text-lg mb-8 font-medium text-[var(--text-dim)] uppercase tracking-widest text-[10px]">
+              Skip the crowd. Ed will personally walk you through our collection to find the mattress that fits your life.
             </p>
             <div className="space-y-6">
               {[
-                { icon: <Calendar size={20} fill="currentColor" />, text: "Flexible STL Showroom Hours" },
-                { icon: <Users size={20} fill="currentColor" />, text: "Private Consultation with Ed" },
-                { icon: <ShieldCheck size={20} fill="currentColor" />, text: "COVID-Safe Environment" }
+                { icon: <Calendar size={20} className="text-black" fill="currentColor" />, text: "Flexible STL Showroom Hours" },
+                { icon: <Users size={20} className="text-black" fill="currentColor" />, text: "Private Consultation with Ed" },
+                { icon: <ShieldCheck size={20} className="text-black" fill="currentColor" />, text: "COVID-Safe Environment" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[var(--accent)] text-black flex items-center justify-center transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,255,0,0.5)]">
+                  <div className="w-10 h-10 rounded bg-[var(--accent)] text-black flex items-center justify-center transition-all group-hover:scale-110 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     {item.icon}
                   </div>
                   <span className="font-bold uppercase tracking-widest text-xs text-[var(--text-dim)] group-hover:text-[var(--accent)] transition-colors">{item.text}</span>
