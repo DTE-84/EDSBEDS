@@ -57,7 +57,7 @@ const Navigation = () => {
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-2xl font-bold"
+              className="text-4xl font-black uppercase italic tracking-tighter text-shadow-hard-accent hover:text-white transition-all underline underline-offset-8 decoration-[var(--accent)]/30"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item}

@@ -32,12 +32,12 @@ const ReviewTicker = () => {
     <section id="reviews" className="py-24 bg-black overflow-hidden relative">
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">What <span className="text-[var(--accent)]">STL</span> is Saying</h2>
-          <div className="flex justify-center gap-1">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="#FFD700" className="text-[#FFD700]" />)}
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-shadow-hard-accent">What <span className="text-white">STL</span> is Saying</h2>
+          <div className="flex justify-center gap-2">
+            {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="var(--accent)" className="text-[var(--accent)]" />)}
           </div>
-          <p className="mt-4 text-[var(--text-dim)] uppercase tracking-widest text-sm font-bold">
-            Over 200+ 5-Star Google Reviews
+          <p className="mt-6 text-[var(--text-dim)] uppercase tracking-[0.3em] text-[10px] font-black">
+            Over 200+ 5-Star Reviews <span className="text-[var(--accent)]">//</span> Verified Comfort
           </p>
         </div>
 

@@ -36,7 +36,7 @@ const ProductShowcase = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6" style={{ textShadow: "3px 3px 0 var(--accent)" }}>The Collection</h2>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-shadow-hard-accent">The Collection</h2>
             <p className="text-[var(--text-dim)] max-w-xl leading-relaxed uppercase font-bold tracking-widest text-xs">
               Each mattress is surgically engineered for the STL spirit. Luxury isn't a option—it's the core. 
             </p>
@@ -53,7 +53,7 @@ const ProductShowcase = () => {
               className="glass-morphism p-8 group relative overflow-hidden flex flex-col h-full hover:border-[var(--accent)] transition-colors"
             >
               <div className="mb-8">
-                <div className="inline-block bg-white/5 px-3 py-1 rounded-full text-[10px] uppercase tracking-tighter font-black border border-white/10 mb-4 text-white" style={{ textShadow: "1px 1px 0 var(--accent)" }}>
+                <div className="inline-block bg-white/5 px-3 py-1 rounded-full text-[10px] uppercase tracking-tighter font-black border border-white/10 mb-4 text-shadow-hard-accent">
                   {product.badge}
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
