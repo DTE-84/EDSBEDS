@@ -58,7 +58,7 @@ const ProductShowcase = () => {
               </div>
 
               <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-1">{product.name}</h3>
+                <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
                 <p className="text-[var(--accent)] text-sm font-medium tracking-widest uppercase">{product.type}</p>
               </div>
 
