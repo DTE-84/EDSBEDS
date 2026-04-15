@@ -7,7 +7,7 @@ const Footer = () => {
         {/* Top: Brand Header */}
         <div className="text-center mb-16">
           <span className="text-5xl md:text-6xl font-black tracking-tighter uppercase italic mb-6 block text-shadow-hard-accent">
-            EDS<span className="text-white not-italic">BEDS</span>
+            EDS<span className="not-italic">BEDS</span>
           </span>
           <p className="text-[var(--text-dim)] max-w-2xl mx-auto leading-relaxed uppercase font-bold tracking-widest text-[10px] mb-10">
             Family-owned, STL-proud. We don't just sell mattresses, we deliver the quality of life Ed's best friends deserve. Experience the comfort revolution in the heart of St. Louis.
@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-24 w-full max-w-6xl border-y border-white/5 py-16">
           {/* Column 1: Physical Address */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 text-white flex items-center gap-3 text-shadow-hard-accent">
+            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 flex items-center gap-3 text-shadow-hard-accent">
               <div className="w-8 h-[1px] bg-[var(--accent)]" /> Physical
             </h4>
             <div className="flex items-start gap-4 text-[var(--text-dim)] text-xs font-bold uppercase tracking-widest">
@@ -43,18 +43,18 @@ const Footer = () => {
 
           {/* Column 2: Service Info */}
           <div className="flex flex-col items-center md:items-start border-white/5 md:border-x px-0 md:px-8">
-            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 text-white flex items-center gap-3 text-shadow-hard-accent">
+            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 flex items-center gap-3 text-shadow-hard-accent">
               <div className="w-8 h-[1px] bg-[var(--accent)]" /> Service
             </h4>
             <div className="flex items-start gap-4 text-[var(--text-dim)] text-xs font-bold uppercase tracking-widest">
               <Clock size={24} className="text-[var(--accent)] shrink-0" />
-              <span>Personalized Service <br /><span className="text-white">Call for Same-Day Setup</span></span>
+              <span>Personalized Service <br />Call for Same-Day Setup</span>
             </div>
           </div>
 
           {/* Column 3: Quick Links */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 text-white flex items-center gap-3 text-shadow-hard-accent">
+            <h4 className="font-black uppercase tracking-[0.3em] text-[10px] mb-8 flex items-center gap-3 text-shadow-hard-accent">
               <div className="w-8 h-[1px] bg-[var(--accent)]" /> Quick Links
             </h4>
             <ul className="space-y-4 text-[var(--text-dim)] text-xs font-bold uppercase tracking-widest">

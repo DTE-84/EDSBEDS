@@ -7,8 +7,8 @@ const AppointmentScheduler = () => {
         <div className="glass-morphism rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
           <div className="md:w-1/2 p-12 bg-[var(--bg-secondary)] flex flex-col justify-center border-r border-white/5">
             <span className="text-[var(--accent)] text-xs font-bold uppercase tracking-[0.3em] mb-4">Phase 03 // The Trial</span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.9] text-shadow-hard-accent">
-              Book a 1-on-1 <br /><span className="text-white">Sleep Trial</span>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 leading-[0.9] text-shadow-hard-accent">
+              Book a 1-on-1 <br /><span>Sleep Trial</span>
             </h2>
             <p className="text-lg mb-8 font-medium text-[var(--text-dim)] uppercase tracking-widest text-[10px]">
               Skip the crowd. Ed will personally walk you through our collection to find the mattress that fits your life.

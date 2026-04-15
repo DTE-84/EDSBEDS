@@ -135,29 +135,19 @@ h1, h2, h3, h4 {
 
 /* Custom Luxury Styles */
 .lux-gradient { background: var(--chrome); }
-.neon-glow { text-shadow: 0 0 10px var(--accent); }
-.text-glow { text-shadow: 0 0 15px var(--accent-soft); }
-.text-shadow-hard { text-shadow: 4px 4px 0 rgba(0,0,0,0.8); }
-.text-shadow-hard-accent { text-shadow: 3px 3px 0 var(--accent); }
+.neon-glow { text-shadow: 2px 2px 4px rgba(0,0,0,1); color: var(--accent) !important; }
+.text-glow { color: var(--accent) !important; }
+.text-shadow-hard { text-shadow: 4px 4px 0 rgba(0,0,0,1); }
+.text-shadow-hard-accent { text-shadow: 3px 3px 0 rgba(0,0,0,1); color: var(--accent) !important; }
 .neon-border { border: 1px solid var(--accent); box-shadow: 0 0 10px var(--accent-soft); }
 .glass-morphism { background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-glass); }
 .text-halo { 
-  color: var(--bg-primary) !important; 
-  text-shadow: 
-    -1px -1px 0 var(--accent),  
-     1px -1px 0 var(--accent),
-    -1px  1px 0 var(--accent),
-     1px  1px 0 var(--accent),
-     0 0 12px var(--accent); 
+  color: var(--accent) !important; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
 }
 .text-halo-lg {
-  color: var(--bg-primary) !important;
-  text-shadow: 
-    -2px -2px 0 var(--accent),  
-     2px -2px 0 var(--accent),
-    -2px  2px 0 var(--accent),
-     2px  2px 0 var(--accent),
-     0 0 20px var(--accent);
+  color: var(--accent) !important;
+  text-shadow: 3px 3px 8px rgba(0,0,0,1);
 }
 
 a, button, .clickable {

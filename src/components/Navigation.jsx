@@ -15,8 +15,8 @@ const Navigation = () => {
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-morphism' : 'py-6'}`}>
       <div className="container flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold tracking-tighter neon-glow" style={{ color: 'var(--accent)' }}>
-            EDS<span className="text-white">BEDS</span>
+          <span className="text-2xl font-black tracking-tighter neon-glow">
+            EDS<span className="italic">BEDS</span>
           </span>
         </div>
 
