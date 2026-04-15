@@ -1,0 +1,98 @@
+@import "@fontsource/outfit";
+@import "@fontsource/playfair-display";
+
+:root {
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #1A1A1A;
+  --accent: #D4FF00;
+  --accent-soft: rgba(212, 255, 0, 0.1);
+  --silver: #C0C0C0;
+  --chrome: linear-gradient(135deg, #BDC3C7 0%, #2C3E50 100%);
+  --text-main: #FFFFFF;
+  --text-dim: #A0A0A0;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.lux-gradient {
+  background: var(--chrome);
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.neon-border {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent-soft);
+}
+
+.glass-morphism {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-neon {
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 12px 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--accent-soft);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-soft);
+}
