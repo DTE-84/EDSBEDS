@@ -14,12 +14,12 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="stl-local" ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-black">
+    <section id="local-mattress" ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
           src="./hero.png" 
-          alt="Luxury Mattress STL" 
+          alt="Luxury Mattress" 
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
@@ -35,8 +35,8 @@ const Hero = () => {
           </h2>
           
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[0.85] tracking-tighter uppercase italic text-shadow-hard">
-            <span className="text-[var(--accent)] not-italic">The STL</span> <br />
-            <span className="text-white">Bed Guy.</span>
+            <span className="text-white">The</span> <br />
+            <span className="text-[var(--accent)] not-italic">Bed Guy.</span>
           </h1>
           
           <p className="text-lg md:text-xl font-medium mb-12 max-w-xl text-[var(--text-dim)] leading-relaxed text-shadow-hard">
