@@ -18,6 +18,12 @@ const reviews = [
     location: "St. Louis, MO",
     text: "Highly recommend. Great customer service and great prices!! Ed is the best in town.",
     rating: 5
+  },
+  {
+    author: "Tyresa Williams",
+    location: "St. Louis, MO",
+    text: "He is so great! Amazing customer service. If you're in STL, Ed's Beds is the only place to go.",
+    rating: 5
   }
 ];
 
@@ -35,7 +41,7 @@ const ReviewTicker = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reviews.map((review, i) => (
             <div key={i} className="glass-morphism p-8 flex flex-col gap-6">
               <p className="text-lg italic text-[var(--text-dim)] leading-relaxed">
