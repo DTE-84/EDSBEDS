@@ -14,11 +14,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-black">
+    <section id="stl-local" ref={heroRef} className="relative h-screen flex items-center overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="/hero.png" 
+          src="./hero.png" 
           alt="Luxury Mattress STL" 
           className="w-full h-full object-cover opacity-60"
         />
@@ -38,12 +38,12 @@ const Hero = () => {
             Ed Schultz brings personalized, no-pressure sleep science to South St. Louis. Experience the Watson Business District standard of comfort.
           </p>
           <div className="flex gap-4">
-            <button className="btn-neon">
+            <a href="#collections" className="btn-neon">
               Shop The Selection
-            </button>
-            <button className="px-8 py-3 glass-morphism rounded-sm font-bold hover:bg-white/10 transition-colors uppercase tracking-widest text-sm">
+            </a>
+            <a href="#scheduling" className="px-8 py-3 glass-morphism rounded-sm font-bold hover:bg-white/10 transition-colors uppercase tracking-widest text-sm text-center">
               Book a Trial
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -34,16 +34,16 @@ const ProductShowcase = () => {
   return (
     <section id="collections" className="py-24 bg-[var(--bg-secondary)]">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">The Collection</h2>
-            <p className="text-[var(--text-dim)] max-w-xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">The Collection</h2>
+            <p className="text-[var(--text-dim)] max-w-xl leading-relaxed">
               Each mattress is surgically engineered for the STL spirit. Luxury isn't a option—it's the core. 
             </p>
           </div>
-          <button className="text-[var(--accent)] font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
+          <a href="#collections" className="text-[var(--accent)] font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
             View All Models <ShoppingBag size={18} />
-          </button>
+          </a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

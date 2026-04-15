@@ -4,12 +4,12 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-[var(--bg-primary)] pt-24 pb-12 border-t border-white/5">
       <div className="container">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-4 gap-16 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <span className="text-3xl font-bold tracking-tighter neon-glow mb-6 block" style={{ color: 'var(--accent)' }}>
+            <span className="text-3xl font-bold tracking-tighter neon-glow mb-8 block" style={{ color: 'var(--accent)' }}>
               EDS<span className="text-white">BEDS</span>
             </span>
-            <p className="text-[var(--text-dim)] max-w-sm mb-8 leading-relaxed">
+            <p className="text-[var(--text-dim)] max-w-sm mb-12 leading-relaxed">
               Family-owned, STL-proud. We don't just sell mattresses, we deliver the quality of life Ed's best friends deserve. Experience the comfort revolution in the heart of St. Louis.
             </p>
             <div className="flex gap-4">
