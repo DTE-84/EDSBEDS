@@ -52,12 +52,10 @@ const ProductShowcase = () => {
               key={product.id} 
               className="glass-morphism p-8 group relative overflow-hidden flex flex-col h-full hover:border-[var(--accent)] transition-colors"
             >
-              {/* Badge */}
-              <div className="absolute top-4 right-4 bg-white/5 px-3 py-1 rounded-full text-[10px] uppercase tracking-tighter font-bold border border-white/10">
-                {product.badge}
-              </div>
-
               <div className="mb-8">
+                <div className="inline-block bg-white/5 px-3 py-1 rounded-full text-[10px] uppercase tracking-tighter font-bold border border-white/10 mb-4">
+                  {product.badge}
+                </div>
                 <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
                 <p className="text-[var(--accent)] text-sm font-medium tracking-widest uppercase">{product.type}</p>
               </div>
@@ -79,13 +77,11 @@ const ProductShowcase = () => {
                   <span className="text-3xl font-bold">{product.price}</span>
                 </div>
                 
-                {/* Square Payment Mock Button */}
                 <button className="w-full btn-neon flex items-center justify-center gap-2">
                   <ShoppingCart size={18} /> Buy with Square
                 </button>
               </div>
 
-              {/* Decorative hover element */}
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[var(--accent)] opacity-0 group-hover:opacity-10 blur-3xl transition-opacity pointer-events-none" />
             </div>
           ))}

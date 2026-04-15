@@ -1,4 +1,4 @@
-import { Menu, X, ShoppingCart, User } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const Navigation = () => {
@@ -33,14 +33,16 @@ const Navigation = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="hidden sm:flex items-center gap-4">
-            <User size={20} className="hover:text-[var(--accent)] cursor-pointer" />
-            <div className="relative">
-              <ShoppingCart size={20} className="hover:text-[var(--accent)] cursor-pointer" />
-              <span className="absolute -top-2 -right-2 bg-[var(--accent)] text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                0
-              </span>
-            </div>
+          <div className="hidden sm:flex items-center gap-6">
+            <User size={18} className="hover:text-[var(--accent)] cursor-pointer transition-colors" />
+            <ShoppingCart size={18} className="hover:text-[var(--accent)] cursor-pointer transition-colors" />
+            <a 
+              href="tel:3144528783" 
+              className="w-10 h-10 glass-morphism rounded-full hover:bg-[var(--accent)] hover:text-black transition-all border border-[var(--accent)] flex items-center justify-center shrink-0"
+              aria-label="Call Ed"
+            >
+              <Phone size={18} />
+            </a>
           </div>
           <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

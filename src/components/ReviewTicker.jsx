@@ -63,8 +63,9 @@ const ReviewTicker = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="text-[var(--text-dim)] hover:text-white transition-colors text-sm font-bold uppercase tracking-[0.2em] border-b border-white/20 pb-1">
-            Read all Reviews on Google
+          <button className="text-[var(--accent)] hover:text-white transition-all text-sm font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 mx-auto group">
+            <span>Read all Reviews on Google</span>
+            <div className="w-8 h-[1px] bg-[var(--accent)] group-hover:w-12 transition-all" />
           </button>
         </div>
       </div>

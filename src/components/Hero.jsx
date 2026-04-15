@@ -26,17 +26,19 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10">
-        <div ref={textRef} className="max-w-2xl">
-          <h2 className="text-[var(--accent)] uppercase tracking-widest font-bold mb-4">
-            Preferred Mattress // 3226 Watson Road
-          </h2>
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-[0.9]">
-            The STL <br />
-            <span className="text-[var(--accent)]">Bed Guy.</span>
-          </h1>
-          <p className="text-xl text-[var(--text-dim)] mb-8 max-w-lg">
-            Ed Schultz brings personalized, no-pressure sleep science to South St. Louis. Experience the Watson Business District standard of comfort.
-          </p>
+      <div ref={textRef} className="max-w-2xl">
+        <h2 className="uppercase tracking-[0.3em] font-bold mb-4 text-halo py-1 px-4 bg-[var(--accent)]/10 inline-block rounded-sm">
+          Preferred Mattress // 3226 Watson Road
+        </h2>
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-[0.9] text-halo-lg">
+          The STL <br />
+          <span className="text-halo-lg">Bed Guy.</span>
+        </h1>
+        <p className="text-xl font-medium mb-8 max-w-lg text-halo py-1 px-4 bg-[var(--accent)]/5 inline-block rounded-sm">
+          Ed Schultz brings personalized, no-pressure sleep science to South St. Louis. Experience the Watson Business District standard of comfort.
+        </p>
+      </div>
+
           <div className="flex gap-4">
             <a href="#collections" className="btn-neon">
               Shop The Selection
@@ -46,7 +48,6 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </div>
 
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
         <div className="w-1 h-12 bg-gradient-to-b from-[var(--accent)] to-transparent" />

@@ -134,8 +134,35 @@ h1, h2, h3, h4 {
 /* Custom Luxury Styles */
 .lux-gradient { background: var(--chrome); }
 .neon-glow { text-shadow: 0 0 10px var(--accent); }
+.text-glow { text-shadow: 0 0 15px var(--accent-soft); }
+.text-shadow-sm { text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+.text-shadow-lg { text-shadow: 0 4px 8px rgba(0,0,0,1); }
+.text-shadow-xl { text-shadow: 0 10px 20px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.8); }
+.text-halo { 
+  color: var(--bg-primary) !important; 
+  text-shadow: 
+    -1px -1px 0 var(--accent),  
+     1px -1px 0 var(--accent),
+    -1px  1px 0 var(--accent),
+     1px  1px 0 var(--accent),
+     0 0 12px var(--accent); 
+}
+.text-halo-lg {
+  color: var(--bg-primary) !important;
+  text-shadow: 
+    -2px -2px 0 var(--accent),  
+     2px -2px 0 var(--accent),
+    -2px  2px 0 var(--accent),
+     2px  2px 0 var(--accent),
+     0 0 20px var(--accent);
+}
 .neon-border { border: 1px solid var(--accent); box-shadow: 0 0 10px var(--accent-soft); }
 .glass-morphism { background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border-glass); }
+
+a, button, .clickable {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
 .btn-neon {
   background: var(--accent);
@@ -145,8 +172,45 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 4px;
+  position: relative;
+  overflow: hidden;
 }
-.btn-neon:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--accent-soft); }
+
+.btn-neon:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px var(--accent-soft), 0 0 20px var(--accent);
+  color: var(--bg-primary); /* Keep text black for contrast */
+}
+
+/* Ensure text and icons are always on top of the shimmer effect */
+.btn-neon > * {
+  position: relative;
+  z-index: 10;
+}
+
+.btn-neon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-neon:hover::after {
+  opacity: 1;
+}
+
+.glass-morphism:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
 
 .object-cover { object-fit: cover; }
 .rounded-full { border-radius: 9999px; }

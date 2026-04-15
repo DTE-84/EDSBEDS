@@ -5,22 +5,23 @@ const AppointmentScheduler = () => {
     <section id="scheduling" className="py-24 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
       <div className="container">
         <div className="glass-morphism rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-          <div className="md:w-1/2 p-12 bg-[var(--accent)] text-black flex flex-col justify-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Book a 1-on-1 Sleep Trial</h2>
-            <p className="text-lg mb-8 font-medium opacity-80">
+          <div className="md:w-1/2 p-12 bg-[var(--bg-secondary)] flex flex-col justify-center border-r border-white/5">
+            <span className="text-[var(--accent)] text-xs font-bold uppercase tracking-[0.3em] mb-4">Phase 03 // The Trial</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Book a 1-on-1 <br /><span className="text-[var(--accent)]">Sleep Trial</span></h2>
+            <p className="text-lg mb-8 font-medium text-[var(--text-dim)]">
               Skip the crowd. Ed will personally walk you through our collection to find the mattress that fits your life. No pressure, just comfort.
             </p>
             <div className="space-y-6">
               {[
-                { icon: <Calendar size={20} />, text: "Flexible STL Showroom Hours" },
-                { icon: <Users size={20} />, text: "Private Consultation with Ed" },
-                { icon: <ShieldCheck size={20} />, text: "COVID-Safe Environment" }
+                { icon: <Calendar size={20} fill="currentColor" />, text: "Flexible STL Showroom Hours" },
+                { icon: <Users size={20} fill="currentColor" />, text: "Private Consultation with Ed" },
+                { icon: <ShieldCheck size={20} fill="currentColor" />, text: "COVID-Safe Environment" }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center">
+                <div key={i} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-full bg-[var(--accent)] text-black flex items-center justify-center transition-all group-hover:scale-110 shadow-[0_0_15px_rgba(212,255,0,0.5)]">
                     {item.icon}
                   </div>
-                  <span className="font-bold uppercase tracking-widest text-sm">{item.text}</span>
+                  <span className="font-bold uppercase tracking-widest text-xs text-[var(--text-dim)] group-hover:text-[var(--accent)] transition-colors">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -63,9 +64,10 @@ const AppointmentScheduler = () => {
               </div>
               <button 
                 type="button" 
-                className="w-full bg-white text-black font-bold py-4 rounded-sm hover:bg-[var(--accent)] transition-colors uppercase tracking-[0.2em]"
+                className="w-full btn-neon flex items-center justify-center gap-3 transition-all group"
               >
-                Confirm Appointment
+                <span>Confirm Appointment</span>
+                <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all" />
               </button>
             </form>
           </div>
