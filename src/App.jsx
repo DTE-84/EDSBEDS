@@ -27,19 +27,19 @@ function App() {
             <section className="py-24 bg-white">
               <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                   <div className="bg-[var(--accent-red)] p-12 rounded-[40px] text-white relative overflow-hidden group">
-                      <div className="relative z-10 font-sans">
-                        <h3 className="text-4xl font-black mb-4 italic font-serif">Spring Specials</h3>
-                        <p className="text-lg font-medium mb-8 opacity-90 font-serif">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
-                        <button onClick={() => setView('scheduling')} className="bg-white text-[var(--accent-red)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform font-sans">Book a Trial</button>
+                   <div className="bg-[var(--accent-red)] p-12 text-white relative overflow-hidden group">
+                      <div className="relative z-10">
+                        <h3 className="text-4xl font-serif mb-4 italic">Spring Specials</h3>
+                        <p className="text-lg font-medium mb-8 opacity-95">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
+                        <button onClick={() => setView('scheduling')} className="bg-white text-[var(--accent-red)] px-8 py-4 font-bold uppercase tracking-widest text-[10px] hover:scale-105 transition-transform">Book a Trial</button>
                       </div>
                       <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-700" />
                    </div>
-                   <div className="bg-[var(--accent-blue)] p-12 rounded-[40px] text-white relative overflow-hidden group">
-                      <div className="relative z-10 font-sans">
-                        <h3 className="text-4xl font-black mb-4 italic font-serif">Global Delivery</h3>
-                        <p className="text-lg font-medium mb-8 opacity-90 font-serif">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
-                        <button onClick={() => setView('mattresses')} className="bg-white text-[var(--accent-blue)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform font-sans">View Inventory</button>
+                   <div className="bg-[var(--accent-blue)] p-12 text-white relative overflow-hidden group">
+                      <div className="relative z-10">
+                        <h3 className="text-4xl font-serif mb-4 italic">Global Delivery</h3>
+                        <p className="text-lg font-medium mb-8 opacity-95">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
+                        <button onClick={() => setView('mattresses')} className="bg-white text-[var(--accent-blue)] px-8 py-4 font-bold uppercase tracking-widest text-[10px] hover:scale-105 transition-transform">View Inventory</button>
                       </div>
                       <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-700" />
                    </div>

@@ -3,13 +3,14 @@
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F7; /* Apple Off-white */
-  --accent-blue: #0071E3; /* Apple Blue */
-  --accent-red: #FF3B30;  /* Apple Red */
-  --text-main: #1D1D1F;   /* Apple Black */
-  --text-dim: #86868B;    /* Apple Gray */
-  --glass: rgba(255, 255, 255, 0.8);
-  --border: rgba(0, 0, 0, 0.1);
+  --bg-secondary: #F8F8F8; 
+  --accent-blue: #0A2351; /* Premium Navy */
+  --accent-red: #C8102E;  /* Crimson Red */
+  --accent: #C8102E;      /* Primary Accent */
+  --text-main: #111111;
+  --text-dim: #666666;
+  --glass: rgba(255, 255, 255, 0.9);
+  --border: rgba(0, 0, 0, 0.08);
 }
 
 /* Base Reset */
@@ -20,7 +21,7 @@
 }
 
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Outfit', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-main);
   overflow-x: hidden;
@@ -40,22 +41,49 @@ a:hover {
 
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
-/* Utility for technical or small caps data where sans-serif might still be needed */
-.font-sans {
+/* Global Navigation Typography */
+.nav-link {
   font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-main);
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--accent-red);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 20px;
 }
 
 /* Layout & Spacing Engine */
 .container {
   width: 100%;
-  max-width: 1024px;
+  max-width: 1400px; /* Wider for luxury feel */
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .flex { display: flex; }
@@ -74,6 +102,7 @@ h1, h2, h3, h4 {
   .md\:flex-row { flex-direction: row; }
   .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .md\:w-1\/2 { width: 50%; }
 }
 
@@ -105,38 +134,50 @@ h1, h2, h3, h4 {
 .z-50 { z-index: 50; }
 
 .hidden { display: none; }
-@media (min-width: 768px) { .md\:hidden { display: none; } .md\:block { display: block; } }
+@media (min-width: 768px) { .md\:hidden { display: none; } .md\:block { display: block; } .lg\:flex { display: flex; } }
 
-/* Apple Minimalist Styles */
+/* Luxury UI Elements */
 .glass-morphism { 
-  background: var(--glass); 
-  backdrop-filter: saturate(180%) blur(20px); 
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(255, 255, 255, 0.98); 
+  border-bottom: 1px solid var(--border);
 }
 
 .btn-primary {
   background: var(--accent-blue);
   color: #FFFFFF;
-  padding: 12px 24px;
-  font-weight: 600;
-  border-radius: 980px;
-  font-size: 0.9375rem;
-  transition: all 0.2s ease;
-  font-family: 'Outfit', sans-serif; /* Keep buttons clean sans-serif */
+  padding: 18px 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
 }
 
 .btn-primary:hover {
-  background: #0077ED;
-  transform: scale(1.02);
+  background: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--accent-blue);
-  padding: 12px 24px;
-  font-weight: 600;
-  font-size: 0.9375rem;
+  padding: 16px 40px;
+  font-weight: 700;
+  font-size: 0.75rem;
   font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--accent-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-blue);
+  color: white;
 }
 
 .btn-secondary:hover {
@@ -173,6 +214,19 @@ h1, h2, h3, h4 {
 
 .transition-all { transition: all 0.3s ease; }
 
+/* Hard Accent Text Shadow */
+.text-shadow-hard-accent {
+  text-shadow: 3px 3px 0px var(--accent);
+}
+
+.italic { font-style: italic; }
+.not-italic { font-style: normal; }
+
+/* Shadow Utility */
+.shadow-hard {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
 /* Animations */
 .animate-in {
   animation-duration: 500ms;
@@ -186,6 +240,9 @@ h1, h2, h3, h4 {
 .duration-500 {
   animation-duration: 500ms;
 }
+
+.text-white { color: #FFFFFF !important; }
+.not-italic { font-style: normal !important; }
 
 @keyframes fadeIn {
   from { opacity: 0; }

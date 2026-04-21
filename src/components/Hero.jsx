@@ -1,52 +1,79 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import heroImage from '../assets/hero_bed.png';
+import { Star, Shield, MapPin, Truck, Landmark } from 'lucide-react';
 
 const Hero = () => {
   const textRef = useRef(null);
+  const ribbonRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(textRef.current.children, 
-      { opacity: 0, y: 15 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" }
+    const tl = gsap.timeline();
+    
+    tl.fromTo(textRef.current.children, 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
+    );
+
+    tl.fromTo(ribbonRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.5"
     );
   }, []);
 
   return (
-    <section id="hero" className="relative h-[85vh] flex flex-col items-center justify-center text-center bg-white overflow-hidden">
-      {/* Decorative Blobs */}
-      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[var(--accent-blue)]/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-[var(--accent-red)]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+    <section id="hero" className="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroImage} 
+          alt="Luxury Mattress" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/10" /> {/* Subtle overlay for text legibility */}
+      </div>
 
-      <div ref={textRef} className="container z-10 relative">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--accent-red)]/5 rounded-full mb-6">
-          <span className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-ping" />
-          <h2 className="text-[10px] font-bold text-[var(--accent-red)] tracking-widest uppercase">
-            New Arrival: RZ Cool Choice
-          </h2>
-        </div>
-        
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-8">
-          Sleep, <span className="text-[var(--accent-blue)]">Perfected.</span>
-        </h1>
-        
-        <p className="text-lg md:text-xl font-medium text-[var(--text-dim)] mb-12 max-w-2xl mx-auto leading-relaxed">
-          Engineered with precision. Designed for absolute comfort. <br className="hidden md:block" />
-          The future of rest is here.
+      <div ref={textRef} className="container z-10 relative text-white py-20">
+        <p className="text-[10px] font-bold tracking-[0.4em] uppercase mb-6 opacity-80">
+          Precision Engineered in St. Louis
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
-          <a href="#mattresses" className="btn-primary px-10 py-5 rounded-2xl shadow-xl shadow-[var(--accent-blue)]/20 hover:scale-105 transition-transform">
-            Shop The Collection
-          </a>
-          <a href="#scheduling" className="btn-secondary px-10 py-5 rounded-2xl border-2 border-gray-100 hover:border-[var(--accent-blue)]/30 transition-all">
-            Book a Trial &gt;
-          </a>
+        <h1 className="text-6xl md:text-[7.5rem] font-serif mb-12 text-white drop-shadow-xl italic leading-[1.1]">
+          Designed for <span className="not-italic">Dreaming</span>
+        </h1>
+        
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
+          <button className="btn-primary">
+            Shop Now
+          </button>
         </div>
       </div>
-      
-      {/* Decorative Blobs */}
-      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-(--accent-blue)/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-(--accent-red)/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+      {/* Info Ribbon - Bottom Overlay */}
+      <div 
+        ref={ribbonRef}
+        className="absolute bottom-0 left-0 w-full bg-white/95 backdrop-blur-md py-6 border-t border-gray-100 z-20"
+      >
+        <div className="container flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-4">
+          <div className="flex items-center gap-3 group px-4">
+            <Star size={18} className="text-[var(--accent-blue)]" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--text-main)]">1K+ 5 Star Reviews</span>
+          </div>
+          <div className="flex items-center gap-3 group px-4">
+            <Shield size={18} className="text-[var(--accent-blue)]" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--text-main)]">Premium Warranties</span>
+          </div>
+          <div className="flex items-center gap-3 group px-4">
+            <MapPin size={18} className="text-[var(--accent-blue)]" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--text-main)]">In Over 20K Retail Stores</span>
+          </div>
+          <div className="flex items-center gap-3 group px-4">
+            <Landmark size={18} className="text-[var(--accent-blue)]" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--text-main)]">Financing Available</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
