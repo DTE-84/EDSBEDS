@@ -1,63 +1,63 @@
-import { Calendar, Users, Camera, ShieldCheck } from 'lucide-react';
+import { Calendar, Users, ShieldCheck } from 'lucide-react';
 
 const AppointmentScheduler = () => {
   return (
-    <section id="scheduling" className="py-24 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
+    <section id="scheduling" className="py-24 bg-white">
       <div className="container">
-        <div className="glass-morphism rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
-          <div className="md:w-1/2 p-12 bg-[var(--bg-secondary)] flex flex-col justify-center border-r border-white/5">
+        <div className="bg-[var(--bg-secondary)] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-sm border border-black/5">
+          <div className="md:w-1/2 p-12 flex flex-col justify-center border-r border-black/5">
             <span className="text-[var(--accent)] text-xs font-bold uppercase tracking-[0.3em] mb-4">Phase 03 // The Trial</span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 leading-[0.9] text-shadow-hard-accent">
+            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
               Book a 1-on-1 <br /><span>Sleep Trial</span>
             </h2>
-            <p className="text-lg mb-8 font-medium text-[var(--text-dim)] uppercase tracking-widest text-[10px]">
-              Skip the crowd. Ed will personally walk you through our collection to find the mattress that fits your life.
+            <p className="text-sm mb-8 font-medium text-[var(--text-dim)] uppercase tracking-widest leading-loose">
+              Skip the crowd. Our team will personally walk you through our collection to find the mattress that fits your life.
             </p>
             <div className="space-y-6">
               {[
-                { icon: <Calendar size={20} className="text-black" fill="currentColor" />, text: "Flexible STL Showroom Hours" },
-                { icon: <Users size={20} className="text-black" fill="currentColor" />, text: "Private Consultation with Ed" },
-                { icon: <ShieldCheck size={20} className="text-black" fill="currentColor" />, text: "COVID-Safe Environment" }
+                { icon: <Calendar size={18} />, text: "Flexible STL Showroom Hours" },
+                { icon: <Users size={18} />, text: "Private Consultation" },
+                { icon: <ShieldCheck size={18} />, text: "Comfort Guarantee" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded bg-[var(--accent)] text-black flex items-center justify-center transition-all group-hover:scale-110 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="w-10 h-10 rounded-full bg-white text-[var(--accent)] flex items-center justify-center transition-all shadow-sm border border-black/5">
                     {item.icon}
                   </div>
-                  <span className="font-bold uppercase tracking-widest text-xs text-[var(--text-dim)] group-hover:text-[var(--accent)] transition-colors">{item.text}</span>
+                  <span className="font-bold uppercase tracking-widest text-[10px] text-[var(--text-dim)] group-hover:text-[var(--accent)] transition-colors">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="md:w-1/2 p-12 flex flex-col justify-center">
+          <div className="md:w-1/2 p-12 flex flex-col justify-center bg-white">
             <form className="space-y-6">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest mb-2 opacity-50">Full Name</label>
+                <label className="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Full Name</label>
                 <input 
                   type="text" 
                   placeholder="John Doe" 
-                  className="w-full bg-white/5 border border-white/10 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors"
+                  className="w-full bg-[var(--bg-secondary)] border border-black/5 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors text-sm"
                 />
               </div>
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest mb-2 opacity-50">Email Address</label>
+                <label className="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Email Address</label>
                 <input 
                   type="email" 
                   placeholder="john@example.com" 
-                  className="w-full bg-white/5 border border-white/10 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors"
+                  className="w-full bg-[var(--bg-secondary)] border border-black/5 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors text-sm"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2 opacity-50">Date</label>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Date</label>
                   <input 
                     type="date" 
-                    className="w-full bg-white/5 border border-white/10 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors"
+                    className="w-full bg-[var(--bg-secondary)] border border-black/5 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2 opacity-50">Time Slot</label>
-                  <select className="w-full bg-white/5 border border-white/10 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors">
+                  <label className="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Time Slot</label>
+                  <select className="w-full bg-[var(--bg-secondary)] border border-black/5 p-4 rounded-sm focus:border-[var(--accent)] outline-none transition-colors text-sm">
                     <option>Morning (10am-12pm)</option>
                     <option>Afternoon (12pm-4pm)</option>
                     <option>Evening (4pm-8pm)</option>
@@ -66,10 +66,9 @@ const AppointmentScheduler = () => {
               </div>
               <button 
                 type="button" 
-                className="w-full btn-neon flex items-center justify-center gap-3 transition-all group"
+                className="w-full btn-primary"
               >
-                <span>Confirm Appointment</span>
-                <div className="w-8 h-[1px] bg-black group-hover:w-12 transition-all" />
+                Confirm Appointment
               </button>
             </form>
           </div>

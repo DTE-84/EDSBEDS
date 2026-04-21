@@ -1,4 +1,4 @@
-import { ShoppingBag, Star, Zap, ShoppingCart } from 'lucide-react';
+import React from 'react';
 
 const products = [
   {
@@ -15,9 +15,9 @@ const products = [
     name: "The Arch Firm",
     type: "Classic Innerspring",
     price: "999",
-    features: ["Lumbar Support", "Watson Road Heritage", "Ed's Service Guarantee"],
-    badge: "Local Pride",
-    color: "#C0C0C0"
+    features: ["Lumbar Support", "STL Heritage", "Preferred Service Guarantee"],
+    badge: "Local Favorite",
+    color: "#4A4A4A"
   },
   {
     id: 3,
@@ -32,57 +32,41 @@ const products = [
 
 const ProductShowcase = () => {
   return (
-    <section id="collections" className="py-24 bg-[var(--bg-secondary)]">
+    <section id="collections" className="py-24 bg-white">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-shadow-hard-accent">The Collection</h2>
-            <p className="text-[var(--text-dim)] max-w-xl leading-relaxed uppercase font-bold tracking-widest text-xs">
-              Each mattress is surgically engineered for the STL spirit. Luxury isn't a option—it's the core. 
-            </p>
-          </div>
-          <a href="#collections" className="text-[var(--accent)] font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
-            View All Models <ShoppingBag size={18} />
-          </a>
+        <div className="text-center mb-16">
+          <span className="text-xs font-bold uppercase tracking-[0.4em] text-[var(--accent)] mb-4 block">The Collection</span>
+          <h2 className="text-4xl md:text-5xl font-serif">Curated Comfort</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product) => (
-            <div 
-              key={product.id} 
-              className="glass-morphism p-8 group relative overflow-hidden flex flex-col h-full hover:border-[var(--accent)] transition-colors"
-            >
-              <div className="mb-8">
-                <div className="inline-block bg-white/5 px-3 py-1 rounded-full text-[10px] uppercase tracking-tighter font-black border border-white/10 mb-4 text-shadow-hard-accent">
-                  {product.badge}
+            <div key={product.id} className="glass-morphism rounded-3xl p-8 flex flex-col h-full hover:border-[var(--accent)] transition-all group">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] mb-1 block">{product.type}</span>
+                  <h3 className="text-2xl font-serif">{product.name}</h3>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
-                <p className="text-[var(--accent)] text-sm font-medium tracking-widest uppercase">{product.type}</p>
+                <span className="bg-[var(--accent-soft)] text-[var(--accent)] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">{product.badge}</span>
+              </div>
+              
+              <div className="text-4xl font-bold mb-8 text-[var(--text-main)]">
+                <span className="text-lg font-medium align-top mr-1">$</span>
+                {product.price}
               </div>
 
-              <div className="mb-8 flex-grow">
-                <ul className="space-y-4">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-[var(--text-dim)]">
-                      <Zap size={14} className="text-[var(--accent)]" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="space-y-4 mb-12 flex-grow">
+                {product.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-[var(--text-dim)]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] opacity-40" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
 
-              <div className="mt-auto">
-                <div className="flex items-baseline gap-2 mb-6">
-                  <span className="text-sm text-[var(--text-dim)]">$</span>
-                  <span className="text-3xl font-bold">{product.price}</span>
-                </div>
-                
-                <button className="w-full btn-neon flex items-center justify-center gap-2">
-                  <ShoppingCart size={18} /> Buy with Square
-                </button>
-              </div>
-
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[var(--accent)] opacity-0 group-hover:opacity-10 blur-3xl transition-opacity pointer-events-none" />
+              <button className="btn-secondary w-full group-hover:bg-[var(--accent)] group-hover:text-white group-hover:border-[var(--accent)]">
+                Learn More
+              </button>
             </div>
           ))}
         </div>

@@ -1,81 +1,60 @@
-import { Star, MapPin } from 'lucide-react';
+import React from 'react';
+import { Star } from 'lucide-react';
 
 const reviews = [
   {
-    author: "Victoria L. Schultz",
-    location: "St. Louis, MO",
-    text: "My bed from Ed has been the best mattress I’ve ever bought. It’s sturdy, comfortable, and I’ve slept better than ever on it! Ed will make sure you get exactly what you want.",
-    rating: 5
-  },
-  {
     author: "Ryan Turinsky",
     location: "St. Louis, MO",
-    text: "Awesome experience. Ed provided great customer service and no pressure. He even personally delivered our bed on a Sunday!",
+    text: "Awesome experience. Great customer service and no pressure. They even personally delivered our bed on a Sunday!",
     rating: 5
   },
   {
     author: "Jennifer Shinkle",
     location: "St. Louis, MO",
-    text: "Highly recommend. Great customer service and great prices!! Ed is the best in town.",
+    text: "Highly recommend. Great customer service and great prices!! The best team in town.",
     rating: 5
   },
   {
     author: "Tyresa Williams",
     location: "St. Louis, MO",
-    text: "He is so great! Amazing customer service. If you're in STL, Ed's Beds is the only place to go.",
+    text: "Amazing customer service. If you're in STL, Preferred Mattress is the only place to go.",
     rating: 5
   }
 ];
 
 const ReviewTicker = () => {
   return (
-    <section id="reviews" className="py-24 bg-black overflow-hidden relative">
+    <section id="reviews" className="py-24 bg-[var(--bg-secondary)] overflow-hidden relative">
       <div className="container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-shadow-hard-accent">What <span className="text-white">STL</span> is Saying</h2>
-          <div className="flex justify-center gap-2">
-            {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="var(--accent)" className="text-[var(--accent)]" />)}
+          <span className="text-xs font-bold uppercase tracking-[0.4em] text-[var(--accent)] mb-4 block">Testimonials</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">What STL is Saying</h2>
+          <div className="flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="var(--accent)" className="text-[var(--accent)]" />)}
           </div>
-          <p className="mt-6 text-[var(--text-dim)] uppercase tracking-[0.3em] text-[10px] font-black">
-            Over 200+ 5-Star Reviews <span className="text-[var(--accent)]">//</span> Verified Comfort
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((review, i) => (
-            <div key={i} className="glass-morphism p-8 flex flex-col gap-6">
-              <p className="text-lg italic text-[var(--text-dim)] leading-relaxed">
-                "{review.text}"
-              </p>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--silver)] flex items-center justify-center font-bold text-black">
-                  {review.author[0]}
-                </div>
-                <div>
-                  <h4 className="font-bold">{review.author}</h4>
-                  <p className="text-xs text-[var(--text-dim)] flex items-center gap-1">
-                    <MapPin size={10} /> {review.location}
-                  </p>
-                </div>
+            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-black/5">
+              <div className="flex gap-1 mb-4">
+                {[...Array(review.rating)].map((_, i) => <Star key={i} size={14} fill="var(--accent)" className="text-[var(--accent)]" />)}
+              </div>
+              <p className="text-[var(--text-main)] italic mb-6 leading-relaxed">"{review.text}"</p>
+              <div>
+                <span className="block font-bold text-sm uppercase tracking-widest">{review.author}</span>
+                <span className="block text-[10px] text-[var(--text-dim)] uppercase tracking-[0.2em]">{review.location}</span>
               </div>
             </div>
           ))}
         </div>
-
+        
         <div className="mt-16 text-center">
-          <a 
-            href="https://google.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="relative px-10 py-5 bg-[var(--accent)] text-black font-black uppercase tracking-widest text-sm text-center min-w-[280px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-b-4 border-l-4 border-black/20 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-200 inline-flex items-center justify-center gap-3"
-          >
-            Read all Reviews on Google
-          </a>
+          <p className="text-[var(--text-dim)] uppercase tracking-[0.3em] text-[10px] font-bold">
+            Over 200+ 5-Star Reviews // Verified Comfort
+          </p>
         </div>
       </div>
-
-      {/* Decorative Neon Ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[var(--accent)]/5 rounded-full pointer-events-none" />
     </section>
   );
 };

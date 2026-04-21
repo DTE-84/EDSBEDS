@@ -6,26 +6,26 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-morphism' : 'py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-morphism' : 'py-6 bg-transparent'}`}>
       <div className="container flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-black tracking-tighter neon-glow">
-            EDS<span className="italic">BEDS</span>
+          <span className="text-xl font-bold tracking-widest uppercase">
+            Preferred <span className="font-serif italic normal-case tracking-normal">Mattress</span>
           </span>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          {['Collections', 'STL Local', 'Reviews', 'Scheduling'].map((item) => (
+          {['Collections', 'Reviews', 'Scheduling'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-sm font-medium uppercase tracking-widest hover:text-[var(--accent)] transition-colors"
+              className="text-xs font-bold uppercase tracking-widest hover:text-[var(--accent)] transition-colors"
             >
               {item}
             </a>
@@ -33,15 +33,16 @@ const Navigation = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-6 text-[var(--text-main)]">
             <User size={18} className="hover:text-[var(--accent)] cursor-pointer transition-colors" />
             <ShoppingCart size={18} className="hover:text-[var(--accent)] cursor-pointer transition-colors" />
             <a 
               href="tel:3144528783" 
-              className="w-10 h-10 glass-morphism rounded-full hover:bg-[var(--accent)] hover:text-black transition-all border border-[var(--accent)] flex items-center justify-center shrink-0"
-              aria-label="Call Ed"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-[var(--accent)] transition-colors"
+              aria-label="Call Us"
             >
-              <Phone size={18} />
+              <Phone size={16} />
+              <span className="hidden lg:inline">Call Us</span>
             </a>
           </div>
           <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -52,17 +53,23 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[72px] bg-black/95 z-40 md:hidden flex flex-col p-8 gap-6 animate-in slide-in-from-right">
-          {['Collections', 'STL Local', 'Reviews', 'Scheduling', 'Cart', 'Account'].map((item) => (
+        <div className="fixed inset-0 top-0 bg-white z-40 md:hidden flex flex-col p-8 pt-24 gap-8">
+          {['Collections', 'Reviews', 'Scheduling'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-4xl font-black uppercase italic tracking-tighter text-shadow-hard-accent hover:text-white transition-all underline underline-offset-8 decoration-[var(--accent)]/30"
+              className="text-3xl font-serif italic hover:text-[var(--accent)] transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item}
             </a>
           ))}
+          <div className="h-[1px] bg-[var(--accent-soft)] w-full" />
+          <div className="flex gap-8">
+            <User size={24} />
+            <ShoppingCart size={24} />
+            <Phone size={24} />
+          </div>
         </div>
       )}
     </nav>
