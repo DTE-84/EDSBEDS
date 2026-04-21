@@ -12,9 +12,6 @@ function App() {
       <Navigation />
       <Hero />
       <ProductShowcase />
-      <div className="py-20 bg-white flex justify-center">
-        <div className="w-[1px] h-32 bg-[var(--accent-soft)]" />
-      </div>
       <ReviewTicker />
       <AppointmentScheduler />
       <Footer />
