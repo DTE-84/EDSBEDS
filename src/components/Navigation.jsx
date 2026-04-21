@@ -32,6 +32,7 @@ const Navigation = () => {
           </span>
         </div>
 
+        {/* Desktop Navigation - Hidden on mobile, visible on LG and up */}
         <div className="hidden lg:flex items-center gap-8">
           {[...categories, ...secondaryLinks].map((item) => (
             <a 
@@ -53,14 +54,20 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Solid White Background */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col p-8 pt-24 gap-6">
+        <div className="fixed inset-0 bg-white z-[60] lg:hidden flex flex-col p-8 pt-24 gap-6">
+          <button 
+            className="absolute top-6 right-6 p-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <X size={24} />
+          </button>
           {[...categories, ...secondaryLinks].map((item) => (
             <a 
               key={item.name} 
               href={item.href}
-              className="text-2xl font-semibold hover:text-[var(--accent-blue)] transition-all"
+              className="text-2xl font-semibold text-[var(--text-main)] hover:text-[var(--accent-blue)] transition-all border-b border-gray-100 pb-4"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}

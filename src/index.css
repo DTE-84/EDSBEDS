@@ -161,3 +161,22 @@ h1, h2, h3, h4 {
 .tracking-tight { letter-spacing: -0.025em; }
 
 .transition-all { transition: all 0.3s ease; }
+
+/* Animations */
+.animate-in {
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.duration-500 {
+  animation-duration: 500ms;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
