@@ -33,39 +33,39 @@ const ReviewTicker = () => {
             <Star size={12} className="text-red-500" />
             <span className="text-[10px] font-bold text-red-500 tracking-widest uppercase">Customer Stories</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
             Real people. <span className="text-blue-600">Real comfort.</span>
           </h2>
         </div>
 
-        {/* items-stretch is key here to make all cards match the tallest one */}
+        {/* items-stretch ensures all cards reach the same height */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {reviews.map((review, i) => (
             <div 
               key={i} 
-              className="flex flex-col bg-white p-10 rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
+              className="flex flex-col bg-white p-10 rounded-[32px] shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-16 h-16 bg-linear-to-bl from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="flex gap-1 mb-6">
-                {[...Array(review.rating)].map((_, starIndex) => (
-                  <Star key={starIndex} size={14} className="text-blue-600 fill-current" />
+                {[...Array(review.rating)].map((_, starIdx) => (
+                  <Star key={starIdx} size={14} className="text-blue-600 fill-current" />
                 ))}
               </div>
               
-              <p className="text-lg font-medium text-gray-800 mb-8 leading-relaxed italic">
+              <p className="text-lg font-medium text-slate-700 mb-8 leading-relaxed italic">
                 "{review.text}"
               </p>
               
-              {/* mt-auto pushes this block to the bottom */}
+              {/* mt-auto: This pushes the bottom section to the baseline of the tallest card */}
               <div className="mt-auto pt-6 border-t border-gray-100 w-full flex items-center justify-between">
                 <div>
-                  <span className="block font-black text-sm text-gray-900 tracking-tight">{review.author}</span>
+                  <span className="block font-black text-sm text-slate-900 tracking-tight">{review.author}</span>
                   <span className="block text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">
                     {review.tag}
                   </span>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
                    <Star size={16} />
                 </div>
               </div>
@@ -76,6 +76,7 @@ const ReviewTicker = () => {
     </section>
   );
 };
+
 
 
 export default ReviewTicker;
