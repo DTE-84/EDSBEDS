@@ -12,30 +12,30 @@ const Footer = () => {
         </div>
 
         {/* Links Row - Centered below Brand */}
-        <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-16 text-center">
+        <div className="flex flex-wrap justify-center gap-16 md:gap-32 mb-20 text-center">
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6 font-sans">Collections</h4>
-            <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium">
-              <li><button onClick={() => window.scrollTo(0,0)} className="hover:text-[var(--accent-blue)] transition-colors">Mattresses</button></li>
-              <li><button onClick={() => window.scrollTo(0,0)} className="hover:text-[var(--accent-blue)] transition-colors">Adjustable Bases</button></li>
-              <li><button onClick={() => window.scrollTo(0,0)} className="hover:text-[var(--accent-blue)] transition-colors">Bedding</button></li>
-              <li><button onClick={() => window.scrollTo(0,0)} className="hover:text-[var(--accent-blue)] transition-colors">Bed Frames</button></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-main)] mb-8 font-sans">Collections</h4>
+            <ul className="space-y-4 text-[10px] text-[var(--text-dim)] font-bold uppercase tracking-[0.1em] font-sans">
+              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[var(--accent-blue)] transition-colors duration-300">Mattresses</button></li>
+              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[var(--accent-blue)] transition-colors duration-300">Adjustable Bases</button></li>
+              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[var(--accent-blue)] transition-colors duration-300">Bedding</button></li>
+              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[var(--accent-blue)] transition-colors duration-300">Bed Frames</button></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6 font-sans">Support</h4>
-            <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium">
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">Contact Us</button></li>
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">Trial Policy</button></li>
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">Shipping</button></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-main)] mb-8 font-sans">Support</h4>
+            <ul className="space-y-4 text-[10px] text-[var(--text-dim)] font-bold uppercase tracking-[0.1em] font-sans">
+              <li><button className="hover:text-[var(--accent-red)] transition-colors duration-300">Contact Us</button></li>
+              <li><button className="hover:text-[var(--accent-red)] transition-colors duration-300">Trial Policy</button></li>
+              <li><button className="hover:text-[var(--accent-red)] transition-colors duration-300">Shipping Info</button></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6 font-sans">Company</h4>
-            <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium">
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">About Us</button></li>
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">Privacy</button></li>
-              <li><button className="hover:text-[var(--accent-blue)] transition-colors">Terms</button></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-main)] mb-8 font-sans">Company</h4>
+            <ul className="space-y-4 text-[10px] text-[var(--text-dim)] font-bold uppercase tracking-[0.1em] font-sans">
+              <li><button className="hover:text-[var(--accent-blue)] transition-colors duration-300">About Our Story</button></li>
+              <li><button className="hover:text-[var(--accent-blue)] transition-colors duration-300">Privacy Policy</button></li>
+              <li><button className="hover:text-[var(--accent-blue)] transition-colors duration-300">Terms of Service</button></li>
             </ul>
           </div>
         </div>

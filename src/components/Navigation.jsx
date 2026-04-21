@@ -45,24 +45,35 @@ const Navigation = ({ currentView, setView }) => {
         </div>
 
         {/* High-Fidelity Navigation Links */}
-        <div className="hidden lg:flex items-center gap-2">
-          {[...categories, ...secondaryLinks].map((item) => (
-            <button 
-              key={item.id} 
-              onClick={() => handleNav(item.id)}
-              className={`px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-300 relative group overflow-hidden font-sans ${currentView === item.id ? 'text-white' : 'text-[var(--text-main)] hover:text-[var(--accent-blue)]'}`}
-            >
-              <span className="relative z-10">{item.name}</span>
-              
-              {/* Animated Background Pill for Active State */}
-              <div className={`absolute inset-0 bg-[var(--accent-blue)] transition-transform duration-500 rounded-full ${currentView === item.id ? 'translate-y-0' : 'translate-y-full group-hover:translate-y-[90%] opacity-10'}`} />
-              
-              {/* Subtle Dot Indicator */}
-              {currentView === item.id && (
-                <div className="absolute top-1 right-3 w-1 h-1 bg-[var(--accent-red)] rounded-full animate-pulse z-20" />
-              )}
-            </button>
-          ))}
+        <div className="hidden lg:flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            {categories.map((item) => (
+              <button 
+                key={item.id} 
+                onClick={() => handleNav(item.id)}
+                className={`px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-300 relative group font-sans ${currentView === item.id ? 'text-[var(--accent-blue)]' : 'text-[var(--text-main)] hover:text-[var(--accent-blue)]'}`}
+              >
+                <span className="relative z-10">{item.name}</span>
+                <div className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[var(--accent-blue)] transition-transform duration-500 origin-left ${currentView === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 opacity-50'}`} />
+              </button>
+            ))}
+          </div>
+
+          {/* Elegant Divider */}
+          <div className="w-[1px] h-6 bg-gray-200 mx-2" />
+
+          <div className="flex items-center gap-2">
+            {secondaryLinks.map((item) => (
+              <button 
+                key={item.id} 
+                onClick={() => handleNav(item.id)}
+                className={`px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-300 relative group font-sans ${currentView === item.id ? 'text-[var(--accent-red)]' : 'text-[var(--text-main)] hover:text-[var(--accent-red)]'}`}
+              >
+                <span className="relative z-10">{item.name}</span>
+                <div className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[var(--accent-red)] transition-transform duration-500 origin-left ${currentView === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 opacity-50'}`} />
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Modern Action Suite */}

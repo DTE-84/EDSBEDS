@@ -21,14 +21,14 @@ function App() {
     switch (view) {
       case 'landing':
         return (
-          <div className="animate-in fade-in duration-700">
+          <div className="animate-in fade-in duration-700 w-full flex flex-col">
             <Hero />
             {/* Landing Specials / Info Section */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-white w-full">
               <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
                    {/* Card 1 */}
-                   <div className="bg-[var(--accent-red)] p-12 rounded-[40px] text-white relative overflow-hidden group">
+                   <div className="bg-[var(--accent-red)] p-12 rounded-[40px] text-white relative overflow-hidden group w-full">
                       <div className="relative z-10">
                         <h3 className="text-4xl font-bold mb-4 italic tracking-tighter">Spring Specials</h3>
                         <p className="text-lg font-medium mb-10 opacity-90 leading-relaxed">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
@@ -43,7 +43,7 @@ function App() {
                    </div>
                    
                    {/* Card 2 */}
-                   <div className="bg-[var(--accent-blue)] p-12 rounded-[40px] text-white relative overflow-hidden group">
+                   <div className="bg-[var(--accent-blue)] p-12 rounded-[40px] text-white relative overflow-hidden group w-full">
                       <div className="relative z-10">
                         <h3 className="text-4xl font-bold mb-4 italic tracking-tighter">Global Delivery</h3>
                         <p className="text-lg font-medium mb-10 opacity-90 leading-relaxed">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
@@ -60,7 +60,7 @@ function App() {
               </div>
             </section>
             
-            <div className="py-12 bg-gray-50/50">
+            <div className="py-12 bg-gray-50/50 w-full">
                <div className="container text-center">
                   <p className="text-[10px] font-bold text-[var(--text-dim)] uppercase tracking-[0.5em] font-sans">Experience the future of rest // Established 2026</p>
                </div>
@@ -69,7 +69,7 @@ function App() {
         );
       case 'mattresses':
         return (
-          <div className="pt-20">
+          <div className="pt-20 w-full">
             <ProductShowcase 
               onSelectProduct={navigateToDetail} 
               onStartQuiz={() => setView('quiz')} 
@@ -77,18 +77,26 @@ function App() {
           </div>
         );
       case 'quiz':
-        return <MattressQuiz onBack={() => setView('mattresses')} onViewProduct={navigateToDetail} />;
+        return (
+          <div className="w-full">
+            <MattressQuiz onBack={() => setView('mattresses')} onViewProduct={navigateToDetail} />
+          </div>
+        );
       case 'detail':
-        return <ProductDetail onBack={() => setView('mattresses')} />;
+        return (
+          <div className="w-full">
+            <ProductDetail onBack={() => setView('mattresses')} />
+          </div>
+        );
       case 'reviews':
         return (
-          <div className="pt-20">
+          <div className="pt-20 w-full">
             <ReviewTicker />
           </div>
         );
       case 'scheduling':
         return (
-          <div className="pt-20">
+          <div className="pt-20 w-full">
             <AppointmentScheduler />
           </div>
         );
@@ -96,11 +104,11 @@ function App() {
       case 'bedding':
       case 'frames':
         return (
-          <div className="pt-40 pb-40 text-center animate-in fade-in slide-in-from-bottom duration-500">
+          <div className="pt-40 pb-40 text-center animate-in fade-in slide-in-from-bottom duration-500 w-full">
             <div className="container">
               <h2 className="text-6xl font-black tracking-tighter mb-6 uppercase">Coming <span className="text-[var(--accent-blue)]">Soon</span></h2>
               <p className="text-xl text-[var(--text-dim)] font-medium max-w-2xl mx-auto leading-relaxed">We're curating the highest quality {view.replace('s', '')} collection to complete your sleep ecosystem. Check back soon for the full launch.</p>
-              <button onClick={() => setView('landing')} className="mt-12 btn-primary px-10 py-5">Back to Home</button>
+              <button onClick={() => setView('landing')} className="mt-12 btn-primary">Back to Home</button>
             </div>
           </div>
         );
@@ -110,10 +118,12 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white">
+    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white flex flex-col items-center">
       {view !== 'quiz' && <Navigation currentView={view} setView={setView} />}
       
-      {renderContent()}
+      <div className="flex-grow w-full flex flex-col items-center">
+        {renderContent()}
+      </div>
       
       {view !== 'quiz' && <Footer />}
     </main>
