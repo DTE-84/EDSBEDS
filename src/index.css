@@ -1,4 +1,5 @@
 @import "@fontsource/outfit";
+@import "@fontsource/playfair-display";
 
 :root {
   --bg-primary: #FFFFFF;
@@ -19,12 +20,11 @@
 }
 
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Playfair Display', serif;
   background-color: var(--bg-primary);
   color: var(--text-main);
   overflow-x: hidden;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
@@ -39,15 +39,21 @@ a:hover {
 }
 
 h1, h2, h3, h4 {
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+}
+
+/* Utility for technical or small caps data where sans-serif might still be needed */
+.font-sans {
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Layout & Spacing Engine */
 .container {
   width: 100%;
-  max-width: 1024px; /* Slightly narrower for Apple feel */
+  max-width: 1024px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -112,10 +118,11 @@ h1, h2, h3, h4 {
   background: var(--accent-blue);
   color: #FFFFFF;
   padding: 12px 24px;
-  font-weight: 500;
-  border-radius: 980px; /* Pill shape */
+  font-weight: 600;
+  border-radius: 980px;
   font-size: 0.9375rem;
   transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif; /* Keep buttons clean sans-serif */
 }
 
 .btn-primary:hover {
@@ -127,8 +134,9 @@ h1, h2, h3, h4 {
   background: transparent;
   color: var(--accent-blue);
   padding: 12px 24px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9375rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .btn-secondary:hover {
@@ -152,13 +160,16 @@ h1, h2, h3, h4 {
 .text-lg { font-size: 1.125rem; }
 .text-xl { font-size: 1.25rem; }
 .text-2xl { font-size: 1.5rem; }
+.text-4xl { font-size: 2.25rem; }
 .text-5xl { font-size: 3rem; }
 .text-6xl { font-size: 4rem; }
 
 .font-bold { font-weight: 700; }
+.font-black { font-weight: 900; }
 .font-semibold { font-weight: 600; }
 .uppercase { text-transform: uppercase; }
 .tracking-tight { letter-spacing: -0.025em; }
+.tracking-widest { letter-spacing: 0.1em; }
 
 .transition-all { transition: all 0.3s ease; }
 
