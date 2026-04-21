@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star } from 'lucide-react'; // Ensure you have this import
 
 const reviews = [
   {
@@ -39,19 +39,19 @@ const ReviewTicker = () => {
           </h2>
         </div>
 
-        {/* Added h-full to the inner div to ensure all cards stretch equally */}
+        {/* items-stretch ensures all cards are the same height */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {reviews.map((review, i) => (
             <div 
               key={i} 
-              className="h-full bg-white p-10 rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col items-start hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white p-10 rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100 flex flex-col items-start hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden"
             >
               {/* Card Corner Accent */}
               <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="flex gap-1 mb-6">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={14} fill="var(--accent-blue)" className="text-[var(--accent-blue)]" />
+                {[...Array(review.rating)].map((_, index) => (
+                  <Star key={index} size={14} fill="var(--accent-blue)" className="text-[var(--accent-blue)]" />
                 ))}
               </div>
               
@@ -60,7 +60,7 @@ const ReviewTicker = () => {
                 "{review.text}"
               </p>
               
-              {/* THE FIX: mt-auto pushes this entire block to the bottom of the card */}
+              {/* mt-auto pushes the name block to the bottom */}
               <div className="mt-auto pt-6 border-t border-gray-50 w-full flex items-center justify-between">
                 <div>
                   <span className="block font-black text-sm tracking-tight">{review.author}</span>
@@ -79,6 +79,5 @@ const ReviewTicker = () => {
     </section>
   );
 };
-
 
 export default ReviewTicker;
