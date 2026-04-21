@@ -9,6 +9,8 @@ import AppointmentScheduler from './components/AppointmentScheduler';
 import Footer from './components/Footer';
 import './index.css';
 
+import FeaturedPreview from './components/FeaturedPreview';
+
 function App() {
   const [view, setView] = useState('landing'); // landing, mattresses, bases, bedding, frames, reviews, scheduling, detail, quiz
 
@@ -21,48 +23,61 @@ function App() {
     switch (view) {
       case 'landing':
         return (
-          <div className="animate-in fade-in duration-700 w-full flex flex-col">
+          <div className="animate-in fade-in duration-700 w-full flex flex-col items-center">
             <Hero />
-            {/* Landing Specials / Info Section */}
-            <section className="py-24 bg-white w-full">
+            
+            <FeaturedPreview setView={setView} />
+
+            {/* Campaign Section */}
+            <section className="py-32 bg-white w-full">
               <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
                    {/* Card 1 */}
-                   <div className="bg-[var(--accent-red)] p-12 rounded-[40px] text-white relative overflow-hidden group w-full">
+                   <div className="bg-[var(--accent-red)] p-16 rounded-[60px] text-white relative overflow-hidden group w-full shadow-2xl shadow-[var(--accent-red)]/20">
                       <div className="relative z-10">
-                        <h3 className="text-4xl font-bold mb-4 italic tracking-tighter">Spring Specials</h3>
-                        <p className="text-lg font-medium mb-10 opacity-90 leading-relaxed">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
+                        <div className="flex items-center gap-4 mb-6">
+                           <div className="w-12 h-[1px] bg-white opacity-50" />
+                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">Limited Time</span>
+                        </div>
+                        <h3 className="text-5xl font-bold mb-6 italic tracking-tighter leading-none">Spring <br /> Specials</h3>
+                        <p className="text-xl font-medium mb-12 opacity-90 leading-relaxed max-w-sm">Save up to 30% on select premium bases and mattresses. Experience the RZ standard.</p>
                         <button 
                           onClick={() => setView('scheduling')} 
-                          className="bg-white text-[var(--accent-red)] px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-xl font-sans"
+                          className="bg-white text-[var(--accent-red)] px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-all shadow-2xl font-sans"
                         >
-                          Book a Trial
+                          Book Private Trial
                         </button>
                       </div>
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000" />
+                      <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
+                      <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-black/5 rounded-full blur-3xl" />
                    </div>
                    
                    {/* Card 2 */}
-                   <div className="bg-[var(--accent-blue)] p-12 rounded-[40px] text-white relative overflow-hidden group w-full">
+                   <div className="bg-[var(--accent-blue)] p-16 rounded-[60px] text-white relative overflow-hidden group w-full shadow-2xl shadow-[var(--accent-blue)]/20">
                       <div className="relative z-10">
-                        <h3 className="text-4xl font-bold mb-4 italic tracking-tighter">Global Delivery</h3>
-                        <p className="text-lg font-medium mb-10 opacity-90 leading-relaxed">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
+                        <div className="flex items-center gap-4 mb-6">
+                           <div className="w-12 h-[1px] bg-white opacity-50" />
+                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">White Glove</span>
+                        </div>
+                        <h3 className="text-5xl font-bold mb-6 italic tracking-tighter leading-none">Concierge <br /> Delivery</h3>
+                        <p className="text-xl font-medium mb-12 opacity-90 leading-relaxed max-w-sm">Precision-packed sleep solutions delivered and installed with surgical care.</p>
                         <button 
                           onClick={() => setView('mattresses')} 
-                          className="bg-white text-[var(--accent-blue)] px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-xl font-sans"
+                          className="bg-white text-[var(--accent-blue)] px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-all shadow-2xl font-sans"
                         >
-                          View Inventory
+                          View Collection
                         </button>
                       </div>
-                      <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
+                      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
+                      <div className="absolute -top-20 -left-20 w-60 h-60 bg-black/5 rounded-full blur-3xl" />
                    </div>
                 </div>
               </div>
             </section>
             
-            <div className="py-12 bg-gray-50/50 w-full">
+            <div className="py-20 bg-[#F8F9FA] w-full border-t border-gray-100">
                <div className="container text-center">
-                  <p className="text-[10px] font-bold text-[var(--text-dim)] uppercase tracking-[0.5em] font-sans">Experience the future of rest // Established 2026</p>
+                  <p className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-[0.8em] font-sans opacity-50">High-Fidelity Rest // Established 2026</p>
                </div>
             </div>
           </div>
