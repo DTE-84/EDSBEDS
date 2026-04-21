@@ -14,11 +14,12 @@ const Footer = () => {
         {/* Links Row - Centered below Brand */}
         <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-16 text-center">
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6">Mattresses</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6">Collections</h4>
             <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium">
-              <li><a href="#" className="hover:text-[var(--accent-blue)] transition-colors">Cloud Hybrid</a></li>
-              <li><a href="#" className="hover:text-[var(--accent-blue)] transition-colors">Classic Firm</a></li>
-              <li><a href="#" className="hover:text-[var(--accent-blue)] transition-colors">Soul Plush</a></li>
+              <li><a href="#mattresses" className="hover:text-[var(--accent-blue)] transition-colors">Mattresses</a></li>
+              <li><a href="#bases" className="hover:text-[var(--accent-blue)] transition-colors">Adjustable Bases</a></li>
+              <li><a href="#bedding" className="hover:text-[var(--accent-blue)] transition-colors">Bedding</a></li>
+              <li><a href="#frames" className="hover:text-[var(--accent-blue)] transition-colors">Bed Frames</a></li>
             </ul>
           </div>
           <div>

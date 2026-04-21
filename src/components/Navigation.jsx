@@ -11,6 +11,18 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const categories = [
+    { name: 'Adjustable Bases', href: '#bases' },
+    { name: 'Mattresses', href: '#mattresses' },
+    { name: 'Bedding', href: '#bedding' },
+    { name: 'Bed Frames', href: '#frames' }
+  ];
+
+  const secondaryLinks = [
+    { name: 'Reviews', href: '#reviews' },
+    { name: 'Scheduling', href: '#scheduling' }
+  ];
+
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-morphism py-3' : 'bg-transparent py-5'}`}>
       <div className="container flex items-center justify-between">
@@ -20,14 +32,14 @@ const Navigation = () => {
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-10">
-          {['Mattresses', 'Reviews', 'Scheduling'].map((item) => (
+        <div className="hidden lg:flex items-center gap-8">
+          {[...categories, ...secondaryLinks].map((item) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`}
-              className="text-xs font-medium hover:text-[var(--accent-blue)] transition-colors"
+              key={item.name} 
+              href={item.href}
+              className="text-[11px] font-semibold uppercase tracking-wider hover:text-[var(--accent-blue)] transition-colors"
             >
-              {item}
+              {item.name}
             </a>
           ))}
         </div>
@@ -35,7 +47,7 @@ const Navigation = () => {
         <div className="flex items-center gap-6">
           <Search size={18} className="cursor-pointer hover:text-[var(--accent-blue)] transition-colors" />
           <ShoppingCart size={18} className="cursor-pointer hover:text-[var(--accent-red)] transition-colors" />
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -43,15 +55,15 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 md:hidden flex flex-col p-8 pt-24 gap-6">
-          {['Mattresses', 'Reviews', 'Scheduling'].map((item) => (
+        <div className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col p-8 pt-24 gap-6">
+          {[...categories, ...secondaryLinks].map((item) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`}
+              key={item.name} 
+              href={item.href}
               className="text-2xl font-semibold hover:text-[var(--accent-blue)] transition-all"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {item}
+              {item.name}
             </a>
           ))}
         </div>
