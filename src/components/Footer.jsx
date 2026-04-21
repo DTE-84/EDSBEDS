@@ -14,8 +14,8 @@ const Footer = () => {
         {/* Links Row - Centered below Brand */}
         <div className="flex flex-wrap justify-center gap-12 md:gap-24 mb-16 text-center">
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-main)] mb-6">Collections</h4>
-            <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium">
+            <h4 className="text-[10px] font-bold textcolor-Red uppercase tracking-widest text-[var(--text-main)] mb-6">Collections</h4>
+            <ul className="space-y-3 text-xs text-[var(--text-dim)] font-medium decoration-none">
               <li><a href="#mattresses" className="hover:text-[var(--accent-blue)] transition-colors">Mattresses</a></li>
               <li><a href="#bases" className="hover:text-[var(--accent-blue)] transition-colors">Adjustable Bases</a></li>
               <li><a href="#bedding" className="hover:text-[var(--accent-blue)] transition-colors">Bedding</a></li>
@@ -43,7 +43,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center gap-6 pt-12 border-t border-black/5 w-full max-w-2xl">
           <div className="text-[11px] font-medium text-[var(--text-dim)]">
-            © 2026 EdsBeds. All Rights Reserved.
+            © 2026 DTE-Solutions. All Rights Reserved.
           </div>
           <div className="flex gap-8 text-[11px] font-medium text-[var(--text-dim)]">
             <span>Customer Support: (314) 452-8783</span>
