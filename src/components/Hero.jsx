@@ -12,17 +12,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative h-[90vh] flex flex-col items-center justify-center text-center bg-white overflow-hidden">
+    <section id="hero" className="relative h-[80vh] flex flex-col items-center justify-center text-center bg-white overflow-hidden">
       <div ref={textRef} className="container z-10">
         <h2 className="text-sm font-semibold text-[var(--accent-red)] mb-4 tracking-tight uppercase">
-          New Release
+          Innovation in Sleep
         </h2>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
           The ultimate sleep. <br />
           <span className="text-[var(--text-dim)]">Built for comfort.</span>
         </h1>
         <p className="text-lg md:text-xl font-medium text-[var(--text-dim)] mb-10 max-w-2xl mx-auto leading-relaxed">
-          Engineered for every body. Precision comfort meet minimalist design. <br className="hidden md:block" />
+          Engineered for every body. Precision comfort meets minimalist design. <br className="hidden md:block" />
           Experience the future of rest.
         </p>
         <div className="flex justify-center gap-6 items-center">
@@ -35,14 +35,8 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Background image (subtle, clean) */}
-      <div className="mt-16 w-full max-w-4xl px-4">
-        <img 
-          src="./hero.png" 
-          alt="Premium Mattress" 
-          className="w-full h-auto object-cover rounded-t-3xl shadow-2xl"
-        />
-      </div>
+      {/* Visual Element (Minimalist CSS Gradient or Shape) */}
+      <div className="absolute bottom-0 w-full h-[20vh] bg-gradient-to-t from-[var(--bg-secondary)] to-transparent" />
     </section>
   );
 };
