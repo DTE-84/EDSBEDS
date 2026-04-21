@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingCart, ChevronRight, Zap } from 'lucide-react';
+import { ShoppingCart, ChevronRight, Zap, Star } from 'lucide-react';
 
 const ProductShowcase = ({ onSelectProduct }) => {
   const [selectedSize, setSelectedSize] = useState('Queen');

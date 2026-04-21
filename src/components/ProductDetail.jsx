@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, ChevronRight, Minus, Plus, ShoppingCart, Truck, ShieldCheck, CreditCard, X, ZoomIn } from 'lucide-react';
 
 const ProductDetail = ({ onBack }) => {
@@ -187,9 +187,5 @@ const ProductDetail = ({ onBack }) => {
     </div>
   );
 };
-
-// Internal Import Mock for useEffect/useState
-import { useEffect as hookEffect } from 'react';
-const useEffect = hookEffect;
 
 export default ProductDetail;
