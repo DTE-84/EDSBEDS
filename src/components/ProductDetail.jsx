@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, ChevronRight, Minus, Plus, ShoppingCart, Truck, ShieldCheck, CreditCard, X, ZoomIn } from 'lucide-react';
+import { Star, ChevronRight, Minus, Plus, ShoppingCart, Truck, ShieldCheck, X, ZoomIn, ChevronDown } from 'lucide-react';
 
 const ProductDetail = ({ onBack }) => {
   const [selectedSize, setSelectedSize] = useState('Queen');
@@ -7,7 +7,6 @@ const ProductDetail = ({ onBack }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
 
-  // Sync with user's specific pricing
   const prices = {
     'Twin XL': 1299.00,
     'Full': 1499.00,
@@ -29,7 +28,6 @@ const ProductDetail = ({ onBack }) => {
     if (dir === 'minus' && quantity > 1) setQuantity(q => q - 1);
   };
 
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -37,25 +35,25 @@ const ProductDetail = ({ onBack }) => {
   return (
     <div className="pt-32 pb-24 bg-white animate-in fade-in duration-500">
       <div className="container">
-        {/* Breadcrumb / Back */}
+        {/* Breadcrumb */}
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] hover:text-[var(--accent-blue)] mb-12 transition-colors group"
+          className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] hover:text-[var(--accent-blue)] mb-12 transition-all group font-sans"
         >
-          <ChevronRight size={14} className="rotate-180 group-hover:-translate-x-1 transition-transform" />
-          Back to Collections
+          <ChevronRight size={14} className="rotate-180 group-hover:-translate-x-1 transition-transform text-[var(--accent-red)]" />
+          Back to Inventory
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           
-          {/* Left: Image Gallery */}
-          <div className="flex flex-col-reverse md:flex-row gap-4 md:gap-6 h-fit lg:sticky lg:top-32">
-            <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+          {/* Left: Gallery */}
+          <div className="flex flex-col-reverse md:flex-row gap-6 h-fit lg:sticky lg:top-32">
+            <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scrollbar-hide">
               {images.map((img, i) => (
                 <button 
                   key={i}
                   onClick={() => setActiveImage(i)}
-                  className={`flex-shrink-0 w-20 md:w-24 aspect-square rounded-2xl overflow-hidden border-2 transition-all shadow-sm ${activeImage === i ? 'border-[var(--accent-red)] scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100 hover:scale-105'}`}
+                  className={`flex-shrink-0 w-20 md:w-24 aspect-square rounded-[20px] overflow-hidden border-2 transition-all ${activeImage === i ? 'border-[var(--accent-blue)] scale-105 shadow-xl shadow-[var(--accent-blue)]/10' : 'border-transparent opacity-40 hover:opacity-100 hover:scale-105'}`}
                 >
                   <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
                 </button>
@@ -63,124 +61,119 @@ const ProductDetail = ({ onBack }) => {
             </div>
             
             <div className="flex-grow relative group cursor-zoom-in" onClick={() => setIsZoomed(true)}>
-              <div className="rounded-[32px] overflow-hidden bg-gray-50 aspect-[4/3] relative shadow-2xl border border-gray-100">
+              <div className="rounded-[40px] overflow-hidden bg-gray-50 aspect-[4/3] relative shadow-2xl border border-gray-100 group-hover:shadow-[var(--accent-blue)]/5 transition-all duration-700">
                 <img 
                   src={images[activeImage]} 
                   alt="RZ Cool Choice 14" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-8 right-8 p-4 bg-white/90 backdrop-blur rounded-2xl opacity-0 group-hover:opacity-100 transition-all shadow-xl scale-90 group-hover:scale-100">
-                  <ZoomIn size={24} className="text-[var(--text-main)]" />
+                <div className="absolute bottom-8 right-8 p-4 bg-white/90 backdrop-blur-xl rounded-2xl opacity-0 group-hover:opacity-100 transition-all shadow-2xl scale-90 group-hover:scale-100">
+                  <ZoomIn size={24} className="text-[var(--accent-blue)]" />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Product Info */}
-          <div className="flex flex-col gap-8">
-            <div className="space-y-4">
+          {/* Right: Info */}
+          <div className="flex flex-col gap-10">
+            <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="flex text-[var(--accent-blue)]">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+                <div className="flex text-[var(--accent-blue)] bg-[var(--accent-blue)]/5 px-3 py-1 rounded-full border border-[var(--accent-blue)]/10">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" className="mr-0.5 last:mr-0" />)}
                 </div>
-                <span className="text-xs font-bold text-[var(--text-dim)] uppercase tracking-widest bg-gray-50 px-3 py-1 rounded-full border border-gray-100">0 Reviews</span>
+                <span className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-[0.2em] font-sans">Professional Grade</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight">RZ Cool Choice <br/><span className="text-[var(--accent-blue)]">14" Mattress</span></h1>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9] italic">
+                RZ Cool Choice <br/>
+                <span className="text-[var(--accent-blue)] not-italic underline decoration-[var(--accent-red)] decoration-4 underline-offset-[12px]">14" Profile</span>
+              </h1>
               
-              <div className="flex flex-wrap gap-2">
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent-red)] bg-[var(--accent-red)]/5 px-3 py-1.5 rounded-lg border border-[var(--accent-red)]/10">
-                  Premium Memory Foam
-                </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent-blue)] bg-[var(--accent-blue)]/5 px-3 py-1.5 rounded-lg border border-[var(--accent-blue)]/10">
-                  HSA/FSA Eligible
-                </div>
-              </div>
-
-              <div className="text-5xl font-bold text-[var(--text-main)] tracking-tighter">
-                ${prices[selectedSize].toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              <div className="text-5xl font-black text-[var(--text-main)] tracking-tighter font-sans flex items-baseline gap-1">
+                <span className="text-2xl text-[var(--accent-red)]">$</span>
+                {prices[selectedSize].toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </div>
             </div>
 
-            {/* Shipping Box */}
-            <div className="border border-gray-100 rounded-[24px] p-6 bg-white shadow-xl shadow-black/[0.02] relative overflow-hidden group hover:border-[var(--accent-red)]/20 transition-colors">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--accent-red)]/5 rounded-bl-full transition-all group-hover:scale-110" />
-              <div className="flex items-center gap-4 mb-3 relative z-10">
-                <div className="w-10 h-10 rounded-xl bg-[var(--accent-red)]/10 flex items-center justify-center text-[var(--accent-red)]">
-                  <Truck size={20} />
-                </div>
-                <strong className="text-sm font-bold uppercase tracking-widest">Free Global Shipping</strong>
-              </div>
-              <p className="text-sm text-[var(--text-dim)] font-medium relative z-10 leading-relaxed">
-                Estimated arrival: <span className="font-bold text-[var(--accent-blue)]">Saturday, April 25 - Tuesday, April 28</span>
-              </p>
-            </div>
-
-            {/* Selectors */}
-            <div className="space-y-8">
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] ml-1">Select Size</label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {Object.keys(prices).map((size) => (
-                    <button 
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`py-4 px-2 rounded-2xl text-[11px] font-bold uppercase tracking-wider border-2 transition-all ${selectedSize === size ? 'border-[var(--accent-blue)] bg-[var(--accent-blue)]/5 text-[var(--accent-blue)] shadow-md' : 'border-gray-50 bg-gray-50 text-[var(--text-dim)] hover:border-gray-200 hover:bg-white'}`}
-                    >
-                      {size}
-                    </button>
-                  ))}
+            {/* Selection Engine */}
+            <div className="space-y-10">
+              {/* Custom Dropdown Box */}
+              <div className="space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--accent-blue)] ml-1 font-sans">Configure Size</label>
+                <div className="relative group">
+                  <select 
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                    className="w-full bg-white border-2 border-gray-100 p-6 rounded-[24px] outline-none appearance-none cursor-pointer text-lg font-black tracking-tight font-sans transition-all hover:border-[var(--accent-blue)] focus:ring-4 focus:ring-[var(--accent-blue)]/5 shadow-sm group-hover:shadow-md"
+                  >
+                    {Object.keys(prices).map(size => (
+                      <option key={size} value={size}>{size} — ${prices[size].toLocaleString()}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--accent-blue)] group-hover:text-[var(--accent-red)] transition-colors">
+                    <ChevronDown size={24} strokeWidth={3} />
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-4 items-end">
-                <div className="space-y-3 w-full md:w-fit">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] ml-1">Quantity</label>
-                  <div className="flex items-center border-2 border-gray-50 rounded-2xl overflow-hidden bg-gray-50 h-[64px]">
-                    <button onClick={() => handleQty('minus')} className="px-6 hover:bg-white hover:text-[var(--accent-red)] transition-all h-full"><Minus size={18} /></button>
-                    <input type="number" readOnly value={quantity} className="w-16 text-center bg-transparent text-lg font-bold" />
-                    <button onClick={() => handleQty('plus')} className="px-6 hover:bg-white hover:text-[var(--accent-blue)] transition-all h-full"><Plus size={18} /></button>
+              {/* Quantity & Action */}
+              <div className="flex flex-col sm:flex-row gap-6 items-end">
+                <div className="space-y-4 w-full sm:w-fit">
+                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--text-dim)] ml-1 font-sans text-center block sm:text-left">Quantity</label>
+                  <div className="flex items-center bg-gray-50 rounded-[24px] border-2 border-gray-50 h-[72px] shadow-inner">
+                    <button onClick={() => handleQty('minus')} className="px-8 hover:text-[var(--accent-red)] transition-all h-full"><Minus size={20} strokeWidth={3} /></button>
+                    <input type="number" readOnly value={quantity} className="w-16 text-center bg-transparent text-xl font-black font-sans" />
+                    <button onClick={() => handleQty('plus')} className="px-8 hover:text-[var(--accent-blue)] transition-all h-full"><Plus size={20} strokeWidth={3} /></button>
                   </div>
                 </div>
                 
-                <button className="flex-grow btn-primary py-4 h-[64px] rounded-2xl shadow-xl shadow-[var(--accent-blue)]/20 flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform">
+                <button className="flex-grow btn-primary h-[72px] rounded-[24px] shadow-2xl shadow-[var(--accent-blue)]/30 flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-[0.98] transition-all font-sans text-sm tracking-widest font-black uppercase overflow-hidden group/btn relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
                   <ShoppingCart size={20} />
                   Add to Cart
                 </button>
               </div>
-              
-              <div className="text-center p-5 bg-gray-50/50 rounded-2xl text-xs font-bold text-[var(--text-dim)] uppercase tracking-widest border border-dashed border-gray-200">
-                Coming Soon Online
-              </div>
             </div>
 
-            <div className="bg-[var(--bg-secondary)] p-8 rounded-[32px] border border-gray-100 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-blue)]/5 rounded-bl-full transition-transform group-hover:scale-110" />
-              <div className="text-3xl font-black text-[var(--accent-blue)] relative z-10 italic">snap</div>
-              <div className="flex-grow text-sm font-semibold text-[var(--text-dim)] leading-relaxed relative z-10">
-                Lease for as low as $58.70/week. <br/>
-                <span className="text-[var(--text-main)]">No credit needed. Instant decisions.</span>
+            {/* Feature Pills */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-gray-50/50 p-6 rounded-[32px] border border-gray-100 flex items-center gap-5 group hover:bg-white hover:shadow-xl transition-all duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center text-[var(--accent-blue)] group-hover:scale-110 transition-transform">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                   <p className="text-[10px] font-black uppercase tracking-widest text-[var(--text-dim)]">Trial Policy</p>
+                   <p className="text-xs font-bold">100-Night Guarantee</p>
+                </div>
               </div>
-              <a href="#" className="btn-primary px-8 py-3 rounded-xl text-xs relative z-10 shadow-lg shadow-[var(--accent-blue)]/10">Apply Now</a>
+              <div className="bg-gray-50/50 p-6 rounded-[32px] border border-gray-100 flex items-center gap-5 group hover:bg-white hover:shadow-xl transition-all duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center text-[var(--accent-red)] group-hover:scale-110 transition-transform">
+                  <Truck size={24} />
+                </div>
+                <div>
+                   <p className="text-[10px] font-black uppercase tracking-widest text-[var(--text-dim)]">Shipping</p>
+                   <p className="text-xs font-bold">Free Global Delivery</p>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
       </div>
 
-      {/* Zoom Overlay */}
+      {/* Immersive Zoom Overlay */}
       {isZoomed && (
         <div 
-          className="fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-4 md:p-12 cursor-zoom-out animate-in fade-in duration-300 backdrop-blur-xl"
+          className="fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-6 cursor-zoom-out animate-in fade-in duration-500 backdrop-blur-2xl"
           onClick={() => setIsZoomed(false)}
         >
-          <button className="absolute top-8 right-8 text-white hover:scale-125 transition-transform p-4">
-            <X size={40} />
+          <button className="absolute top-12 right-12 text-white/50 hover:text-white hover:scale-125 transition-all p-4">
+            <X size={48} strokeWidth={1.5} />
           </button>
           <img 
             src={images[activeImage]} 
             alt="Zoomed View" 
-            className="max-w-full max-h-full object-contain rounded-3xl shadow-[0_0_100px_rgba(255,255,255,0.1)]" 
+            className="max-w-full max-h-full object-contain rounded-[40px] shadow-[0_0_120px_rgba(0,113,227,0.15)] scale-95 animate-in zoom-in-95 duration-700" 
           />
         </div>
       )}
