@@ -44,11 +44,9 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-        <span className="text-[10px] font-bold uppercase tracking-widest">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[var(--text-main)] to-transparent" />
-      </div>
+      {/* Decorative Blobs */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-(--accent-blue)/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-(--accent-red)/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
     </section>
   );
 };
