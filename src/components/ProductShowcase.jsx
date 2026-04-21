@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { ShoppingCart, ChevronRight, Zap, Star } from 'lucide-react';
+import { ShoppingCart, ChevronRight, Zap, Star, Sparkles } from 'lucide-react';
 
-const ProductShowcase = ({ onSelectProduct }) => {
+const ProductShowcase = ({ onSelectProduct, onStartQuiz }) => {
   const [selectedSize, setSelectedSize] = useState('Queen');
-  const [quantity, setQuantity] = useState(1);
 
   const priceMap = {
     'Twin XL': 1299.00,
@@ -14,18 +13,35 @@ const ProductShowcase = ({ onSelectProduct }) => {
   const handleAddToCart = () => {
     if (onSelectProduct) {
       onSelectProduct();
-    } else {
-      alert(`Added ${quantity} x RZ Cool Flex Pro (${selectedSize}) to cart.`);
     }
   };
 
   return (
     <section id="mattresses" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative Shading */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gray-50 to-transparent" />
-      
       <div className="container relative z-10">
-        <div className="text-center mb-20 space-y-4">
+        
+        {/* Quiz Prompt Section */}
+        <div className="max-w-5xl mx-auto mb-20">
+           <div className="bg-gradient-to-r from-[var(--accent-blue)] to-[#005bb5] p-8 md:p-12 rounded-[40px] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
+              <div className="space-y-4 relative z-10 text-center md:text-left">
+                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full">
+                    <Sparkles size={12} className="text-white" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest">New: Sleep Algorithm</span>
+                 </div>
+                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Not sure which bed is right?</h2>
+                 <p className="text-lg opacity-90 max-w-md font-medium">Take our 60-second quiz and get matched to your perfect sleep profile.</p>
+              </div>
+              <button 
+                onClick={onStartQuiz}
+                className="bg-white text-[var(--accent-blue)] px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl relative z-10 shrink-0"
+              >
+                Start Sleep Quiz
+              </button>
+           </div>
+        </div>
+
+        <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--accent-blue)]/5 rounded-full mb-2">
             <Zap size={12} className="text-[var(--accent-blue)]" />
             <span className="text-[10px] font-bold text-[var(--accent-blue)] tracking-widest uppercase">Expert Curation</span>
@@ -78,7 +94,7 @@ const ProductShowcase = ({ onSelectProduct }) => {
               <div className="w-full space-y-8 mb-10">
                 <div className="space-y-3">
                   <div className="flex justify-between items-center px-1">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)]">Select Your Size</label>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] ml-1">Select Your Size</label>
                     <span className="text-[10px] font-bold text-[var(--accent-blue)] uppercase tracking-widest">Free Shipping</span>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
@@ -97,28 +113,11 @@ const ProductShowcase = ({ onSelectProduct }) => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
                     onClick={handleAddToCart}
-                    className="flex-grow btn-primary py-5 rounded-2xl shadow-xl shadow-[var(--accent-blue)]/20 flex items-center justify-center gap-3 group/btn"
+                    className="flex-grow btn-primary py-5 rounded-2xl shadow-xl shadow-[var(--accent-blue)]/20 flex items-center justify-center gap-3 group/btn font-sans"
                   >
                     <ShoppingCart size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
                     View Details
                   </button>
-                </div>
-              </div>
-
-              <div className="h-[1px] bg-gradient-to-r from-transparent via-black/5 to-transparent w-full mb-8" />
-
-              <div className="grid grid-cols-2 gap-6 w-full">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[var(--accent-blue)]/5 flex items-center justify-center text-[var(--accent-blue)]">
-                    <Zap size={14} />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)]">Cooling Gel</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[var(--accent-red)]/5 flex items-center justify-center text-[var(--accent-red)]">
-                    <ChevronRight size={14} />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)]">Elite Support</span>
                 </div>
               </div>
             </div>

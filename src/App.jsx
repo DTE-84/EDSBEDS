@@ -3,13 +3,19 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import ProductShowcase from './components/ProductShowcase';
 import ProductDetail from './components/ProductDetail';
+import MattressQuiz from './components/MattressQuiz';
 import ReviewTicker from './components/ReviewTicker';
 import AppointmentScheduler from './components/AppointmentScheduler';
 import Footer from './components/Footer';
 import './index.css';
 
 function App() {
-  const [view, setView] = useState('landing'); // landing, mattresses, bases, bedding, frames, reviews, scheduling, detail
+  const [view, setView] = useState('landing'); // landing, mattresses, bases, bedding, frames, reviews, scheduling, detail, quiz
+
+  const navigateToDetail = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => setView('detail'), 100);
+  };
 
   const renderContent = () => {
     switch (view) {
@@ -22,37 +28,37 @@ function App() {
               <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                    <div className="bg-[var(--accent-red)] p-12 rounded-[40px] text-white relative overflow-hidden group">
-                      <div className="relative z-10">
-                        <h3 className="text-4xl font-black mb-4 italic">Spring Specials</h3>
-                        <p className="text-lg font-medium mb-8 opacity-90">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
-                        <button onClick={() => setView('scheduling')} className="bg-white text-[var(--accent-red)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book a Trial</button>
+                      <div className="relative z-10 font-sans">
+                        <h3 className="text-4xl font-black mb-4 italic font-serif">Spring Specials</h3>
+                        <p className="text-lg font-medium mb-8 opacity-90 font-serif">Save up to 30% on select premium bases and mattresses. Limited time showroom offer.</p>
+                        <button onClick={() => setView('scheduling')} className="bg-white text-[var(--accent-red)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform font-sans">Book a Trial</button>
                       </div>
                       <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-700" />
                    </div>
                    <div className="bg-[var(--accent-blue)] p-12 rounded-[40px] text-white relative overflow-hidden group">
-                      <div className="relative z-10">
-                        <h3 className="text-4xl font-black mb-4 italic">Global Delivery</h3>
-                        <p className="text-lg font-medium mb-8 opacity-90">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
-                        <button onClick={() => setView('mattresses')} className="bg-white text-[var(--accent-blue)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">View Inventory</button>
+                      <div className="relative z-10 font-sans">
+                        <h3 className="text-4xl font-black mb-4 italic font-serif">Global Delivery</h3>
+                        <p className="text-lg font-medium mb-8 opacity-90 font-serif">We ship everywhere. Precision-packed sleep solutions delivered directly to your doorstep.</p>
+                        <button onClick={() => setView('mattresses')} className="bg-white text-[var(--accent-blue)] px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform font-sans">View Inventory</button>
                       </div>
                       <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-700" />
                    </div>
                 </div>
               </div>
             </section>
-            <div className="py-12 bg-gray-50/50">
-               <div className="container text-center">
-                  <p className="text-[10px] font-bold text-[var(--text-dim)] uppercase tracking-[0.5em]">Experience the future of rest // Established 2026</p>
-               </div>
-            </div>
           </div>
         );
       case 'mattresses':
         return (
           <div className="pt-20">
-            <ProductShowcase onSelectProduct={() => setView('detail')} />
+            <ProductShowcase 
+              onSelectProduct={navigateToDetail} 
+              onStartQuiz={() => setView('quiz')} 
+            />
           </div>
         );
+      case 'quiz':
+        return <MattressQuiz onBack={() => setView('mattresses')} onViewProduct={navigateToDetail} />;
       case 'detail':
         return <ProductDetail onBack={() => setView('mattresses')} />;
       case 'reviews':
@@ -86,11 +92,11 @@ function App() {
 
   return (
     <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white">
-      <Navigation currentView={view} setView={setView} />
+      {view !== 'quiz' && <Navigation currentView={view} setView={setView} />}
       
       {renderContent()}
       
-      <Footer />
+      {view !== 'quiz' && <Footer />}
     </main>
   );
 }
