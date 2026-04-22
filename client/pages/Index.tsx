@@ -99,7 +99,7 @@ export default function Index() {
           <div className="container-max">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Why Choose Restful?
+                Why Choose EDSBEDS?
               </h2>
               <p className="text-foreground/60 max-w-2xl mx-auto">
                 We're committed to providing you with the highest quality mattresses and exceptional customer service.
@@ -269,7 +269,7 @@ export default function Index() {
               Ready to Sleep Better?
             </h2>
             <p className="text-lg opacity-90 max-w-2xl mx-auto mb-8">
-              Join thousands of satisfied customers who have transformed their sleep with Restful mattresses.
+              Join thousands of satisfied customers who have transformed their sleep with EDSBEDS mattresses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

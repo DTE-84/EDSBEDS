@@ -47,10 +47,10 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
                       <a
-                        href="mailto:hello@restful.com"
+                        href="mailto:hello@dte-solutions.icu"
                         className="text-foreground/60 hover:text-primary transition-colors"
                       >
-                        hello@restful.com
+                        hello@dte-solutions.icu
                       </a>
                     </div>
                   </div>
