@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist",
+    sourcemap: true, // Enable source maps for production build
   },
   plugins: [react(), expressPlugin()],
   resolve: {
