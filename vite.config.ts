@@ -5,7 +5,7 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/EDSBEDS/", // Explicitly set base for GitHub Pages subdirectory
+  base: "", // Set base to empty string for relative paths in GitHub Pages subdirectories
   server: {
     host: "::",
     port: 8080,
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "dist", // Output to 'dist' folder
+    outDir: "dist",
   },
   plugins: [react(), expressPlugin()],
   resolve: {
