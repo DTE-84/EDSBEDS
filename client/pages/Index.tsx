@@ -10,84 +10,42 @@ export default function Index() {
 
       <main>
         {/* Hero Section */}
-        <section className="min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary via-background to-background relative overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/shibainu.png" 
+              alt="Comfortable Mattress" 
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay to ensure text legibility */}
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
 
           <div className="container-max relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Content */}
-              <div>
-                <div className="inline-block px-4 py-2 mb-6 bg-accent/10 rounded-full border border-accent/20">
-                  <span className="text-xs font-semibold text-accent">
-                    Premium Sleep Solutions
-                  </span>
-                </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-                  Sleep Better, <span className="text-primary">Live Better</span>
-                </h1>
-
-                <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
-                  Discover our collection of handcrafted mattresses and foundations designed to provide the perfect night's sleep. Experience the difference quality rest can make.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                  <Link
-                    to="/mattresses"
-                    className="btn-accent flex items-center justify-center gap-2 font-semibold text-sm"
-                  >
-                    Explore Mattresses
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="btn-secondary font-semibold text-sm"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-
-                {/* Trust badges */}
-                <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <p className="font-bold text-foreground">100%</p>
-                    <p className="text-foreground/60 text-xs">Money Back</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">10+</p>
-                    <p className="text-foreground/60 text-xs">Years Experience</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">5K+</p>
-                    <p className="text-foreground/60 text-xs">Happy Customers</p>
-                  </div>
-                </div>
+            <div className="flex flex-col items-center text-center text-white">
+              {/* Badge */}
+              <div className="inline-block px-4 py-2 mb-12 bg-accent/20 backdrop-blur-md rounded-full border border-accent/30">
+                <span className="text-xs font-semibold text-white">
+                  Premium Sleep Solutions
+                </span>
               </div>
 
-              {/* Image placeholder */}
-              <div className="aspect-square bg-secondary rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-                <div className="relative z-10 text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-12 h-12 text-primary"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2m0 0a2 2 0 002-2v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4a2 2 0 012-2m14 0V5a2 2 0 00-2-2H7a2 2 0 00-2 2v7"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-semibold text-foreground/60">
-                    Premium Mattress
-                  </p>
+              {/* Main title and subheadline removed as they are embedded in the Luna background image */}
+
+              {/* Centered Trust badges - Positioned under the image text */}
+              <div className="grid grid-cols-3 gap-12 text-sm text-white/90 max-w-2xl">
+                <div>
+                  <p className="font-bold text-xl">100%</p>
+                  <p className="text-white/70 text-xs uppercase tracking-widest">Money Back</p>
+                </div>
+                <div>
+                  <p className="font-bold text-xl">10+</p>
+                  <p className="text-white/70 text-xs uppercase tracking-widest">Years Experience</p>
+                </div>
+                <div>
+                  <p className="font-bold text-xl">5K+</p>
+                  <p className="text-white/70 text-xs uppercase tracking-widest">Happy Customers</p>
                 </div>
               </div>
             </div>

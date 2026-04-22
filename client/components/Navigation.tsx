@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,13 @@ export default function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-6">
+            <Link to="/cart" className="relative text-foreground/70 hover:text-primary transition-colors p-2">
+              <ShoppingCart className="w-6 h-6" />
+              <span className="absolute top-0 right-0 bg-accent text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[1.25rem] flex items-center justify-center">
+                0
+              </span>
+            </Link>
             <Link
               to="/contact"
               className="btn-accent text-xs font-semibold"
@@ -79,7 +85,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-background border-b border-border">
+          <div className="md:hidden bg-background border-b border-border shadow-lg">
             <div className="container-max py-4 space-y-4">
               {navLinks.map((link) => (
                 <Link
@@ -91,13 +97,23 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="btn-accent text-xs font-semibold block text-center mt-4"
-              >
-                Contact Us
-              </Link>
+              <div className="flex items-center justify-between py-4 border-t border-border">
+                <Link
+                  to="/cart"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 text-sm font-medium text-foreground/70"
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  Cart (0)
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="btn-accent text-xs font-semibold px-4 py-2 rounded-lg"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         )}
