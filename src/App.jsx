@@ -9,8 +9,6 @@ import AppointmentScheduler from './components/AppointmentScheduler';
 import Footer from './components/Footer';
 import './index.css';
 
-import FeaturedPreview from './components/FeaturedPreview';
-
 function App() {
   const [view, setView] = useState('landing'); // landing, mattresses, bases, bedding, frames, reviews, scheduling, detail, quiz
 
@@ -23,68 +21,66 @@ function App() {
     switch (view) {
       case 'landing':
         return (
-          <div className="animate-in fade-in duration-700 w-full flex flex-col items-center">
+          <div className="animate-in fade-in duration-1000">
             <Hero />
             
-            <FeaturedPreview setView={setView} />
-
-            {/* Campaign Section */}
-            <section className="py-32 bg-white w-full">
+            {/* 5-STAR SPECIALS SECTION */}
+            <section className="section-padding bg-white relative overflow-hidden">
               <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
-                   {/* Card 1 */}
-                   <div className="bg-[var(--accent-red)] p-16 rounded-[60px] text-white relative overflow-hidden group w-full shadow-2xl shadow-[var(--accent-red)]/20">
+                <div className="text-center mb-20">
+                   <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 italic">Exclusive <span className="text-[var(--accent-blue)] not-italic">Offers.</span></h2>
+                   <div className="w-24 h-1 bg-[var(--accent-red)] mx-auto rounded-full" />
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                   {/* High-Fidelity Card 1 */}
+                   <div className="card-upscale group relative overflow-hidden bg-white border border-gray-50">
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--accent-red)]/5 rounded-bl-full group-hover:scale-125 transition-transform duration-1000" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-4 mb-6">
-                           <div className="w-12 h-[1px] bg-white opacity-50" />
-                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">Limited Time</span>
-                        </div>
-                        <h3 className="text-5xl font-bold mb-6 italic tracking-tighter leading-none">Spring <br /> Specials</h3>
-                        <p className="text-xl font-medium mb-12 opacity-90 leading-relaxed max-w-sm">Save up to 30% on select premium bases and mattresses. Experience the RZ standard.</p>
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-6 block font-sans">Seasonal Event</span>
+                        <h3 className="text-5xl font-black mb-6 italic tracking-tighter leading-none">Spring <br/><span className="text-[var(--accent-red)]">Specials.</span></h3>
+                        <p className="text-xl text-[var(--text-dim)] mb-12 font-medium leading-relaxed">Save up to 30% on select premium bases and mattresses. Experience the legacy of comfort.</p>
                         <button 
                           onClick={() => setView('scheduling')} 
-                          className="bg-white text-[var(--accent-red)] px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-all shadow-2xl font-sans"
+                          className="btn-secondary"
                         >
                           Book Private Trial
                         </button>
                       </div>
-                      <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
-                      <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-black/5 rounded-full blur-3xl" />
                    </div>
                    
-                   {/* Card 2 */}
-                   <div className="bg-[var(--accent-blue)] p-16 rounded-[60px] text-white relative overflow-hidden group w-full shadow-2xl shadow-[var(--accent-blue)]/20">
+                   {/* High-Fidelity Card 2 */}
+                   <div className="card-upscale group relative overflow-hidden bg-white border border-gray-100">
+                      <div className="absolute bottom-0 left-0 w-40 h-40 bg-[var(--accent-blue)]/5 rounded-tr-full group-hover:scale-125 transition-transform duration-1000" />
                       <div className="relative z-10">
-                        <div className="flex items-center gap-4 mb-6">
-                           <div className="w-12 h-[1px] bg-white opacity-50" />
-                           <span className="text-[10px] font-black uppercase tracking-[0.4em]">White Glove</span>
-                        </div>
-                        <h3 className="text-5xl font-bold mb-6 italic tracking-tighter leading-none">Concierge <br /> Delivery</h3>
-                        <p className="text-xl font-medium mb-12 opacity-90 leading-relaxed max-w-sm">Precision-packed sleep solutions delivered and installed with surgical care.</p>
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-blue)] mb-6 block font-sans">Worldwide Access</span>
+                        <h3 className="text-5xl font-black mb-6 italic tracking-tighter leading-none">Global <br/><span className="text-[var(--accent-blue)]">Delivery.</span></h3>
+                        <p className="text-xl text-[var(--text-dim)] mb-12 font-medium leading-relaxed">Precision-packed sleep solutions delivered directly to your doorstep, anywhere in the world.</p>
                         <button 
                           onClick={() => setView('mattresses')} 
-                          className="bg-white text-[var(--accent-blue)] px-12 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-all shadow-2xl font-sans"
+                          className="btn-primary"
                         >
-                          View Collection
+                          View Inventory
                         </button>
                       </div>
-                      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-1000" />
-                      <div className="absolute -top-20 -left-20 w-60 h-60 bg-black/5 rounded-full blur-3xl" />
                    </div>
                 </div>
               </div>
             </section>
             
-            <div className="py-20 bg-[#F8F9FA] w-full border-t border-gray-100">
+            {/* Elegant Divider */}
+            <div className="bg-gray-50/30 py-24">
                <div className="container text-center">
-                  <p className="text-[10px] font-black text-[var(--text-dim)] uppercase tracking-[0.8em] font-sans opacity-50">High-Fidelity Rest // Established 2026</p>
+                  <p className="text-[12px] font-black text-[var(--text-dim)] uppercase tracking-[0.6em] font-sans opacity-40">Precision Sleep Logic // National Expansion 2026</p>
                </div>
             </div>
+
+            <ReviewTicker />
           </div>
         );
       case 'mattresses':
         return (
-          <div className="pt-20 w-full">
+          <div className="pt-32">
             <ProductShowcase 
               onSelectProduct={navigateToDetail} 
               onStartQuiz={() => setView('quiz')} 
@@ -92,26 +88,18 @@ function App() {
           </div>
         );
       case 'quiz':
-        return (
-          <div className="w-full">
-            <MattressQuiz onBack={() => setView('mattresses')} onViewProduct={navigateToDetail} />
-          </div>
-        );
+        return <MattressQuiz onBack={() => setView('mattresses')} onViewProduct={navigateToDetail} />;
       case 'detail':
-        return (
-          <div className="w-full">
-            <ProductDetail onBack={() => setView('mattresses')} />
-          </div>
-        );
+        return <ProductDetail onBack={() => setView('mattresses')} />;
       case 'reviews':
         return (
-          <div className="pt-20 w-full">
+          <div className="pt-32">
             <ReviewTicker />
           </div>
         );
       case 'scheduling':
         return (
-          <div className="pt-20 w-full">
+          <div className="pt-32">
             <AppointmentScheduler />
           </div>
         );
@@ -119,11 +107,11 @@ function App() {
       case 'bedding':
       case 'frames':
         return (
-          <div className="pt-40 pb-40 text-center animate-in fade-in slide-in-from-bottom duration-500 w-full">
+          <div className="section-padding text-center animate-in fade-in slide-in-from-bottom duration-700">
             <div className="container">
-              <h2 className="text-6xl font-black tracking-tighter mb-6 uppercase">Coming <span className="text-[var(--accent-blue)]">Soon</span></h2>
-              <p className="text-xl text-[var(--text-dim)] font-medium max-w-2xl mx-auto leading-relaxed">We're curating the highest quality {view.replace('s', '')} collection to complete your sleep ecosystem. Check back soon for the full launch.</p>
-              <button onClick={() => setView('landing')} className="mt-12 btn-primary">Back to Home</button>
+              <h2 className="text-7xl font-black tracking-tighter mb-8 italic uppercase">Coming <span className="text-[var(--accent-blue)] not-italic underline decoration-[var(--accent-red)]">Soon.</span></h2>
+              <p className="text-2xl text-[var(--text-dim)] font-medium max-w-3xl mx-auto leading-relaxed">We're curating the highest quality {view.replace('s', '')} collection to complete your sleep ecosystem. Check back soon for the official launch.</p>
+              <button onClick={() => setView('landing')} className="mt-16 btn-primary">Back to Showcase</button>
             </div>
           </div>
         );
@@ -133,12 +121,10 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white flex flex-col items-center">
+    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white">
       {view !== 'quiz' && <Navigation currentView={view} setView={setView} />}
       
-      <div className="flex-grow w-full flex flex-col items-center">
-        {renderContent()}
-      </div>
+      {renderContent()}
       
       {view !== 'quiz' && <Footer />}
     </main>

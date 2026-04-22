@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Mail, User, Scale, Ruler, Star, RotateCcw, Home, Save, HelpCircle, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, Mail, User, Scale, Ruler, Star, RotateCcw, House, Save, CircleHelp, CircleCheckBig } from 'lucide-react';
 
 const MattressQuiz = ({ onBack, onViewProduct }) => {
   const [currentStep, setCurrentStep] = useState('welcome'); // welcome, q1-q10, results
@@ -123,64 +123,69 @@ const MattressQuiz = ({ onBack, onViewProduct }) => {
         return (
           <div className="max-w-4xl mx-auto space-y-12 animate-in fade-in slide-in-from-bottom duration-500">
             <div className="text-center space-y-4">
-              <h1 className="text-4xl font-bold">What's {answers.name || 'your'} primary sleep position?</h1>
+              <h1 className="text-4xl font-bold italic tracking-tighter text-[var(--text-main)]">What's {answers.name || 'your'} primary sleep position?</h1>
+              <p className="text-[var(--text-dim)] font-medium">Select the profile that best matches your habits.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                {[
-                 { id: 'back', t: 'Back', d: 'Sleep primarily on your back.' },
-                 { id: 'side', t: 'Side', d: 'Sleep primarily on your side.' },
-                 { id: 'stomach', t: 'Stomach', d: 'Sleep on your stomach.' },
-                 { id: 'combo', t: 'Combination', d: 'Toss and turn frequently.' }
+                 { id: 'back', t: 'Back', d: 'Maximum spinal alignment support.' },
+                 { id: 'side', t: 'Side', d: 'Pressure relief for hips and shoulders.' },
+                 { id: 'stomach', t: 'Stomach', d: 'Firm surface to prevent arching.' },
+                 { id: 'combo', t: 'Combination', d: 'Versatile kinetic response foam.' }
                ].map(pos => (
                  <button 
                   key={pos.id}
                   onClick={() => handleNext('q7', { q6: pos.id })}
-                  className="bg-white p-8 rounded-3xl border-2 border-gray-100 hover:border-[var(--accent-blue)] transition-all text-left group hover:-translate-y-1 shadow-sm"
+                  className="bg-white p-10 rounded-[40px] border border-gray-100 hover:border-[var(--accent-blue)] transition-all text-left group hover:-translate-y-2 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_rgba(0,113,227,0.1)] relative overflow-hidden"
                  >
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--accent-blue)]">{pos.t}</h3>
-                    <p className="text-sm text-[var(--text-dim)]">{pos.d}</p>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[var(--accent-blue)] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <h3 className="text-2xl font-bold mb-3 group-hover:text-[var(--accent-blue)] italic tracking-tighter">{pos.t}</h3>
+                    <p className="text-xs text-[var(--text-dim)] font-medium leading-relaxed">{pos.d}</p>
+                    <div className="mt-6 flex items-center text-[8px] font-black uppercase tracking-widest text-[var(--accent-blue)] opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                      Select <ChevronRight size={12} className="ml-1" />
+                    </div>
                  </button>
                ))}
             </div>
-            <button onClick={() => handleBack('q5')} className="mx-auto block text-xs font-bold uppercase tracking-widest text-[var(--text-dim)] hover:text-[var(--accent-red)] transition-colors italic underline">Back</button>
+            <button onClick={() => handleBack('q5')} className="mx-auto block text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-dim)] hover:text-[var(--accent-red)] transition-colors italic underline">Back to Previous</button>
           </div>
         );
 
       case 'results':
         const match = mattresses[calculateResults()];
         return (
-          <div className="max-w-4xl mx-auto animate-in fade-in duration-1000">
-            <div className="text-center space-y-8 mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent-blue)]/5 rounded-full text-[var(--accent-blue)]">
-                <CheckCircle2 size={18} />
-                <span className="text-xs font-bold uppercase tracking-widest">Matching Complete</span>
+          <div className="max-w-5xl mx-auto animate-in fade-in duration-1000">
+            <div className="text-center space-y-10 mb-20">
+              <div className="inline-flex items-center gap-3 px-5 py-2 bg-[var(--accent-blue)]/5 rounded-full text-[var(--accent-blue)] border border-[var(--accent-blue)]/10 shadow-sm">
+                <CircleCheckBig size={16} />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Profile Analysis Complete</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight italic">
-                The {answers.name || 'Your'} <br/>Match is <span className="text-[var(--accent-blue)] underline">Found.</span>
+              <h1 className="text-6xl md:text-[8rem] font-bold tracking-tighter leading-[0.85] italic text-[var(--text-main)]">
+                The {answers.name || 'Your'} <br/>Match is <span className="text-[var(--accent-blue)] not-italic">Ready.</span>
               </h1>
-              <div className="bg-[var(--bg-secondary)] p-12 rounded-[40px] border border-gray-100 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-red)]/5 rounded-bl-full" />
-                <h2 className="text-4xl font-bold mb-6 tracking-tighter">{match.name}</h2>
-                <p className="text-lg text-[var(--text-dim)] leading-relaxed mb-10 max-w-2xl mx-auto">{match.description}</p>
-                <button onClick={onViewProduct} className="btn-primary px-12 py-6 rounded-2xl shadow-xl shadow-[var(--accent-blue)]/20">See Mattress Details</button>
+              <div className="bg-white p-16 rounded-[60px] border border-gray-100 shadow-[0_50px_120px_rgba(0,0,0,0.05)] relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-blue)]/5 rounded-bl-full" />
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter italic text-[var(--text-main)]">{match.name}</h2>
+                <p className="text-xl text-[var(--text-dim)] leading-relaxed mb-12 max-w-2xl mx-auto font-medium">{match.description}</p>
+                <button onClick={onViewProduct} className="btn-primary px-16 py-7 rounded-2xl shadow-2xl shadow-[var(--accent-blue)]/30 text-[11px]">View Full Product Specifications</button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {match.features.map((f, i) => (
-                <div key={i} className="p-8 bg-white border border-gray-100 rounded-3xl shadow-sm flex items-start gap-6 hover:border-[var(--accent-blue)]/20 transition-all">
-                  <div className="text-4xl">{f.icon}</div>
+                <div key={i} className="p-10 bg-white border border-gray-50 rounded-[40px] shadow-sm flex items-start gap-8 hover:border-[var(--accent-blue)]/20 hover:shadow-xl transition-all duration-500">
+                  <div className="text-5xl p-4 bg-gray-50 rounded-2xl">{f.icon}</div>
                   <div>
-                    <h4 className="text-lg font-bold mb-2">{f.title}</h4>
-                    <p className="text-sm text-[var(--text-dim)] leading-relaxed">{f.desc}</p>
+                    <h4 className="text-2xl font-bold mb-3 italic tracking-tighter">{f.title}</h4>
+                    <p className="text-base text-[var(--text-dim)] leading-relaxed font-medium">{f.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-               <button onClick={() => setCurrentStep('welcome')} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--text-dim)] hover:text-[var(--accent-red)] transition-colors italic underline">
-                 <RotateCcw size={14} /> Retake Quiz
+            <div className="mt-20 text-center">
+               <button onClick={() => setCurrentStep('welcome')} className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-dim)] hover:text-[var(--accent-red)] transition-all opacity-60 hover:opacity-100">
+                 <RotateCcw size={16} /> Retake Sleep Profile Analysis
                </button>
             </div>
           </div>
@@ -189,43 +194,45 @@ const MattressQuiz = ({ onBack, onViewProduct }) => {
       default:
         // Mocking skip to q6 and results for logic demo
         return (
-          <div className="max-w-xl mx-auto text-center space-y-8 animate-in fade-in duration-500">
-             <h1 className="text-4xl font-bold italic">Analyzing Profile...</h1>
-             <div className="w-full h-1 bg-[var(--bg-secondary)] rounded-full overflow-hidden">
+          <div className="max-w-xl mx-auto text-center space-y-12 animate-in fade-in duration-500 pt-20">
+             <h1 className="text-5xl font-bold italic tracking-tighter text-[var(--text-main)]">Analyzing <br/> Sleep Data...</h1>
+             <div className="w-full h-1.5 bg-[var(--bg-secondary)] rounded-full overflow-hidden shadow-inner">
                 <div className="h-full bg-[var(--accent-blue)] animate-[loading_2s_ease-in-out_infinite]" style={{width: '60%'}} />
              </div>
-             <button onClick={() => handleNext('q6')} className="btn-secondary">Resume Analysis</button>
-             <button onClick={() => handleNext('results')} className="btn-primary">Generate Final Match</button>
+             <div className="flex gap-4 justify-center">
+                <button onClick={() => handleNext('q6')} className="btn-secondary py-4 px-8 text-[10px]">Resume Analysis</button>
+                <button onClick={() => handleNext('results')} className="btn-primary py-4 px-8 text-[10px]">Generate Results</button>
+             </div>
           </div>
         );
     }
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-white selection:bg-[var(--accent-red)] selection:text-white">
+    <div className="min-h-screen pt-40 pb-24 bg-white selection:bg-[var(--accent-red)] selection:text-white">
       {/* Quiz Header */}
-      <div className="fixed top-[70px] left-0 w-full z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="container py-4 flex items-center justify-between">
-           <button onClick={onBack} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--accent-red)] transition-colors">
-             <Home size={14} /> Exit
+      <div className="fixed top-0 left-0 w-full z-[60] bg-white/90 backdrop-blur-xl border-b border-gray-100">
+        <div className="container py-6 flex items-center justify-between">
+           <button onClick={onBack} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] hover:text-[var(--accent-red)] transition-all">
+             <House size={16} /> Exit Quiz
            </button>
-           <div className="flex-grow max-w-md mx-8">
-              <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                 <div className="h-full bg-[var(--accent-red)] transition-all duration-1000" style={{ width: `${progress}%` }} />
+           <div className="flex-grow max-w-md mx-12">
+              <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden shadow-inner">
+                 <div className="h-full bg-[var(--accent-red)] transition-all duration-1000 shadow-[0_0_10px_rgba(255,59,48,0.5)]" style={{ width: `${progress}%` }} />
               </div>
            </div>
-           <button className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-[var(--accent-blue)] transition-colors opacity-50">
-             <Save size={14} /> Save
+           <button className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] hover:text-[var(--accent-blue)] transition-all opacity-40">
+             <Save size={16} /> Save
            </button>
         </div>
       </div>
 
-      <div className="container mt-12">
-        {renderContent ? renderStep() : renderStep()}
+      <div className="container">
+        {renderStep()}
       </div>
 
-      <button className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-[var(--accent-blue)] text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
-         <HelpCircle size={20} />
+      <button className="fixed bottom-10 right-10 w-14 h-14 rounded-full bg-[var(--accent-blue)] text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+         <CircleHelp size={24} />
       </button>
     </div>
   );
