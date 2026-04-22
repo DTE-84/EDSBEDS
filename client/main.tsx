@@ -19,7 +19,7 @@ const Root = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/EDSBEDS">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/mattresses" element={<Products />} />
