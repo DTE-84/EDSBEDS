@@ -6,7 +6,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter> {/* Removed basename="/EDSBEDS" */}
+    <BrowserRouter basename="/EDSBEDS">
       <App />
     </BrowserRouter>
   </StrictMode>,
