@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ChevronRight, Minus, Plus, ShoppingCart, Truck, ShieldCheck, X, ZoomIn, ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const ProductDetail = ({ onBack }) => {
+const ProductDetail = () => {
+  const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState('Queen');
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
@@ -37,7 +39,7 @@ const ProductDetail = ({ onBack }) => {
       <div className="container">
         {/* Breadcrumb */}
         <button 
-          onClick={onBack}
+          onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] hover:text-[var(--accent-blue)] mb-12 transition-all group font-sans"
         >
           <ChevronRight size={14} className="rotate-180 group-hover:-translate-x-1 transition-transform text-[var(--accent-red)]" />

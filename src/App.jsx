@@ -33,7 +33,6 @@ function App() {
                 </div>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                   {/* High-Fidelity Card 1 */}
                    <div className="card-upscale group relative overflow-hidden bg-white border border-gray-50">
                       <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--accent-red)]/5 rounded-bl-full group-hover:scale-125 transition-transform duration-1000" />
                       <div className="relative z-10">
@@ -49,7 +48,6 @@ function App() {
                       </div>
                    </div>
                    
-                   {/* High-Fidelity Card 2 */}
                    <div className="card-upscale group relative overflow-hidden bg-white border border-gray-100">
                       <div className="absolute bottom-0 left-0 w-40 h-40 bg-[var(--accent-blue)]/5 rounded-tr-full group-hover:scale-125 transition-transform duration-1000" />
                       <div className="relative z-10">
@@ -68,20 +66,17 @@ function App() {
               </div>
             </section>
             
-            {/* Elegant Divider */}
-            <div className="bg-gray-50/30 py-24">
-               <div className="container text-center">
-                  <p className="text-[12px] font-black text-[var(--text-dim)] uppercase tracking-[0.6em] font-sans opacity-40">Precision Sleep Logic // National Expansion 2026</p>
-               </div>
-            </div>
-
             <ReviewTicker />
           </div>
         );
       case 'mattresses':
+      case 'bases':
+      case 'bedding':
+      case 'frames':
         return (
-          <div className="pt-32">
+          <div className="pt-20">
             <ProductShowcase 
+              category={view}
               onSelectProduct={navigateToDetail} 
               onStartQuiz={() => setView('quiz')} 
             />
@@ -101,18 +96,6 @@ function App() {
         return (
           <div className="pt-32">
             <AppointmentScheduler />
-          </div>
-        );
-      case 'bases':
-      case 'bedding':
-      case 'frames':
-        return (
-          <div className="section-padding text-center animate-in fade-in slide-in-from-bottom duration-700">
-            <div className="container">
-              <h2 className="text-7xl font-black tracking-tighter mb-8 italic uppercase">Coming <span className="text-[var(--accent-blue)] not-italic underline decoration-[var(--accent-red)]">Soon.</span></h2>
-              <p className="text-2xl text-[var(--text-dim)] font-medium max-w-3xl mx-auto leading-relaxed">We're curating the highest quality {view.replace('s', '')} collection to complete your sleep ecosystem. Check back soon for the official launch.</p>
-              <button onClick={() => setView('landing')} className="mt-16 btn-primary">Back to Showcase</button>
-            </div>
           </div>
         );
       default:

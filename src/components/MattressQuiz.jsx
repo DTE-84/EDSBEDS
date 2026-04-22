@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, Mail, User, Scale, Ruler, Star, RotateCcw, House, Save, CircleHelp, CircleCheckBig } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CircleCheckBig, ChevronRight, RotateCcw, House, Save, CircleHelp, ShoppingCart } from 'lucide-react';
 
-const MattressQuiz = ({ onBack, onViewProduct }) => {
+const MattressQuiz = () => {
+  const navigate = useNavigate();
+
   const [currentStep, setCurrentStep] = useState('welcome'); // welcome, q1-q10, results
   const [answers, setAnswers] = useState({});
   const [progress, setProgress] = useState(0);
@@ -167,7 +170,13 @@ const MattressQuiz = ({ onBack, onViewProduct }) => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-blue)]/5 rounded-bl-full" />
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter italic text-[var(--text-main)]">{match.name}</h2>
                 <p className="text-xl text-[var(--text-dim)] leading-relaxed mb-12 max-w-2xl mx-auto font-medium">{match.description}</p>
-                <button onClick={onViewProduct} className="btn-primary px-16 py-7 rounded-2xl shadow-2xl shadow-[var(--accent-blue)]/30 text-[11px]">View Full Product Specifications</button>
+                <button 
+                  onClick={() => navigate('/product')}
+                  className="w-full max-w-sm mx-auto btn-primary py-6 rounded-2xl shadow-2xl shadow-[var(--accent-blue)]/30 flex items-center justify-center gap-4 group/btn font-sans text-[11px]"
+                >
+                  <ShoppingCart size={20} className="group-hover/btn:-translate-y-1 transition-transform" />
+                  Configure & Checkout
+                </button>
               </div>
             </div>
 
@@ -213,7 +222,8 @@ const MattressQuiz = ({ onBack, onViewProduct }) => {
       {/* Quiz Header */}
       <div className="fixed top-0 left-0 w-full z-[60] bg-white/90 backdrop-blur-xl border-b border-gray-100">
         <div className="container py-6 flex items-center justify-between">
-           <button onClick={onBack} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] hover:text-[var(--accent-red)] transition-all">
+           <button onClick={() => navigate(-1)} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] hover:text-[var(--accent-red)] transition-all">
+
              <House size={16} /> Exit Quiz
            </button>
            <div className="flex-grow max-w-md mx-12">

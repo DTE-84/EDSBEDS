@@ -1,9 +1,12 @@
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-const Navigation = ({ currentView, setView }) => {
+const Navigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const location = useLocation();
+	const isLanding = location.pathname === "/";
 
 	useEffect(() => {
 		const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -12,35 +15,29 @@ const Navigation = ({ currentView, setView }) => {
 	}, []);
 
 	const categories = [
-		{ name: "Mattresses", id: "mattresses" },
-		{ name: "Adjustable Bases", id: "bases" },
-		{ name: "Bedding", id: "bedding" },
-		{ name: "Bed Frames", id: "frames" },
+		{ name: "Mattresses", path: "/mattresses" },
+		{ name: "Adjustable Bases", path: "/bases" },
+		{ name: "Bedding", path: "/bedding" },
+		{ name: "Bed Frames", path: "/frames" },
 	];
-
-	const handleNav = (viewId) => {
-		setView(viewId);
-		setMobileMenuOpen(false);
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
 
 	return (
 		<nav
 			className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-				isScrolled || currentView !== "landing"
+				isScrolled || !isLanding
 					? "bg-white/98 backdrop-blur-xl py-4 shadow-[0_1px_0_rgba(0,0,0,0.05)]"
 					: "bg-transparent py-8"
 			}`}>
 			<div className='container'>
 				<div className='flex items-center justify-between'>
 					{/* Logo */}
-					<button
-						onClick={() => handleNav("landing")}
+					<Link
+						to='/'
 						className='group relative z-10'>
 						<div className='flex items-baseline gap-0.5'>
 							<span
 								className={`text-3xl font-black tracking-tighter transition-colors duration-300 ${
-									isScrolled || currentView !== "landing"
+									isScrolled || !isLanding
 										? "text-[var(--text-main)]"
 										: "text-white"
 								}`}>
@@ -48,7 +45,7 @@ const Navigation = ({ currentView, setView }) => {
 							</span>
 							<span
 								className={`text-3xl font-black tracking-tighter transition-colors duration-300 ${
-									isScrolled || currentView !== "landing"
+									isScrolled || !isLanding
 										? "text-[var(--accent-blue)]"
 										: "text-white/90"
 								}`}>
@@ -57,35 +54,35 @@ const Navigation = ({ currentView, setView }) => {
 						</div>
 						<div
 							className={`h-0.5 mt-1 transition-all duration-300 ${
-								isScrolled || currentView !== "landing"
+								isScrolled || !isLanding
 									? "bg-[var(--accent-blue)]"
 									: "bg-white"
 							} w-0 group-hover:w-full`}
 						/>
-					</button>
+					</Link>
 
 					{/* Desktop Navigation */}
 					<div className='hidden lg:flex items-center gap-8'>
 						{categories.map((item) => (
-							<button
-								key={item.id}
-								onClick={() => handleNav(item.id)}
-								className={`relative py-2 text-sm font-bold transition-all duration-300 group ${
-									isScrolled || currentView !== "landing"
-										? "text-[var(--text-dim)] hover:text-[var(--text-main)]"
-										: "text-white/80 hover:text-white"
+							<NavLink
+								key={item.path}
+								to={item.path}
+								className={({ isActive }) => `relative py-2 text-sm font-bold transition-all duration-300 group ${
+									isScrolled || !isLanding
+										? isActive ? "text-[var(--accent-blue)]" : "text-[var(--text-dim)] hover:text-[var(--text-main)]"
+										: isActive ? "text-white" : "text-white/80 hover:text-white"
 								}`}>
 								{item.name}
 								<div
 									className={`absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-300 ${
-										currentView === item.id
-											? isScrolled || currentView !== "landing"
+										location.pathname === item.path
+											? isScrolled || !isLanding
 												? "bg-[var(--accent-blue)] scale-x-100"
 												: "bg-white scale-x-100"
 											: "bg-[var(--accent-blue)] scale-x-0 group-hover:scale-x-100"
 									}`}
 								/>
-							</button>
+							</NavLink>
 						))}
 					</div>
 
@@ -94,29 +91,29 @@ const Navigation = ({ currentView, setView }) => {
 						<a
 							href='tel:3144528783'
 							className={`flex items-center gap-2 text-sm font-bold transition-colors ${
-								isScrolled || currentView !== "landing"
+								isScrolled || !isLanding
 									? "text-[var(--text-main)] hover:text-[var(--accent-blue)]"
 									: "text-white hover:text-white/80"
 							}`}>
 							<Phone size={16} />
 							(314) 452-8783
 						</a>
-						<button
-							onClick={() => handleNav("scheduling")}
+						<Link
+							to='/appointment'
 							className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
-								isScrolled || currentView !== "landing"
+								isScrolled || !isLanding
 									? "bg-[var(--accent-blue)] text-white hover:bg-[var(--accent-blue)]/90 shadow-lg shadow-[var(--accent-blue)]/20"
 									: "bg-white text-[var(--accent-blue)] hover:bg-white/90 shadow-xl"
 							}`}>
 							Book Appointment
-						</button>
+						</Link>
 					</div>
 
 					{/* Mobile Menu Button */}
 					<button
 						onClick={() => setMobileMenuOpen(true)}
 						className={`lg:hidden p-2 rounded-lg transition-colors ${
-							isScrolled || currentView !== "landing"
+							isScrolled || !isLanding
 								? "text-[var(--text-main)] hover:bg-gray-100"
 								: "text-white hover:bg-white/10"
 						}`}>
@@ -149,13 +146,16 @@ const Navigation = ({ currentView, setView }) => {
 						{/* Mobile Navigation Links */}
 						<nav className='flex flex-col gap-2 mb-auto'>
 							{categories.map((item, i) => (
-								<button
-									key={item.id}
-									onClick={() => handleNav(item.id)}
-									className='text-left text-3xl font-bold py-4 text-[var(--text-main)] hover:text-[var(--accent-blue)] transition-colors border-b border-gray-100 last:border-0'
+								<NavLink
+									key={item.path}
+									to={item.path}
+									onClick={() => setMobileMenuOpen(false)}
+									className={({ isActive }) => `text-left text-3xl font-bold py-4 transition-colors border-b border-gray-100 last:border-0 ${
+                    isActive ? "text-[var(--accent-blue)]" : "text-[var(--text-main)] hover:text-[var(--accent-blue)]"
+                  }`}
 									style={{ animationDelay: `${i * 50}ms` }}>
 									{item.name}
-								</button>
+								</NavLink>
 							))}
 						</nav>
 
@@ -167,11 +167,12 @@ const Navigation = ({ currentView, setView }) => {
 								<Phone size={20} />
 								(314) 452-8783
 							</a>
-							<button
-								onClick={() => handleNav("scheduling")}
-								className='bg-[var(--accent-blue)] text-white py-6 rounded-2xl text-lg font-bold hover:bg-[var(--accent-blue)]/90 transition-all shadow-xl shadow-[var(--accent-blue)]/20'>
+							<Link
+								to='/appointment'
+								onClick={() => setMobileMenuOpen(false)}
+								className='bg-[var(--accent-blue)] text-white py-6 rounded-2xl text-lg font-bold hover:bg-[var(--accent-blue)]/90 transition-all shadow-xl shadow-[var(--accent-blue)]/20 text-center'>
 								Book Appointment
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>

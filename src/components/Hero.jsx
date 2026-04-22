@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Award, Clock, MapPin } from 'lucide-react';
+
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -56,21 +58,16 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
-            <a
-              href="#mattresses"
-              className="group inline-flex items-center gap-3 bg-white text-[var(--accent-blue)] px-8 py-5 rounded-full font-bold text-lg hover:bg-white/90 transition-all shadow-2xl hover:scale-105"
+          <div className="flex justify-center items-center mb-20">
+            <Link
+              to="/appointment"
+              className="group inline-flex items-center gap-3 bg-white text-[var(--accent-blue)] px-10 py-5 rounded-full font-bold text-lg hover:bg-white/90 transition-all shadow-2xl hover:scale-105"
             >
-              Shop Mattresses
+              Book a Private Showroom Visit
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#scheduling"
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-5 rounded-full font-bold text-lg hover:bg-white/20 transition-all"
-            >
-              Book a Visit
-            </a>
+            </Link>
           </div>
+
 
           {/* Stats Bar */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Facebook = ({ size = 24, ...props }) => (
   <svg
@@ -37,9 +38,24 @@ const Instagram = ({ size = 24, ...props }) => (
   </svg>
 );
 
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const shopLinks = [
+    { name: 'Mattresses', path: '/mattresses' },
+    { name: 'Adjustable Bases', path: '/bases' },
+    { name: 'Bedding', path: '/bedding' },
+    { name: 'Bed Frames', path: '/frames' }
+  ];
+
+  const supportLinks = [
+    { name: 'Sleep Quiz', path: '/quiz' },
+    { name: 'Book Appointment', path: '/appointment' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: '100-Night Trial', path: '/contact' },
+    { name: 'Delivery Info', path: '/contact' }
+  ];
+
 
   return (
     <footer className="bg-[var(--bg-secondary)] border-t border-gray-200">
@@ -50,10 +66,10 @@ const Footer = () => {
           
           {/* Brand & Description */}
           <div className="lg:col-span-1">
-            <div className="flex items-baseline gap-0.5 mb-4">
-              <span className="text-2xl font-black tracking-tighter text-[var(--text-main)]">EDS</span>
-              <span className="text-2xl font-black tracking-tighter text-[var(--accent-blue)]">BEDS</span>
-            </div>
+            <Link to="/" className="flex items-baseline gap-0.5 mb-4 group">
+              <span className="text-2xl font-black tracking-tighter text-[var(--text-main)] group-hover:text-[var(--accent-blue)] transition-colors">EDS</span>
+              <span className="text-2xl font-black tracking-tighter text-[var(--accent-blue)] group-hover:text-[var(--text-main)] transition-colors">BEDS</span>
+            </Link>
             <p className="text-sm text-[var(--text-dim)] leading-relaxed mb-6">
               Quincy's premier destination for quality mattresses, adjustable bases, and sleep solutions. Family-owned and dedicated to your best night's sleep.
             </p>
@@ -79,11 +95,11 @@ const Footer = () => {
               Shop
             </h4>
             <ul className="space-y-3">
-              {['Mattresses', 'Adjustable Bases', 'Bedding', 'Bed Frames'].map((item) => (
-                <li key={item}>
-                  <button className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
-                    {item}
-                  </button>
+              {shopLinks.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path} className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,17 +111,11 @@ const Footer = () => {
               Support
             </h4>
             <ul className="space-y-3">
-              {[
-                'Sleep Quiz',
-                '100-Night Trial',
-                'Delivery Info',
-                'Financing Options',
-                'Contact Us'
-              ].map((item) => (
-                <li key={item}>
-                  <button className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
-                    {item}
-                  </button>
+              {supportLinks.map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path} className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -160,12 +170,12 @@ const Footer = () => {
               © {currentYear} EdsBeds. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <button className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
+              <Link to="/" className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
                 Privacy Policy
-              </button>
-              <button className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
+              </Link>
+              <Link to="/" className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
                 Terms of Service
-              </button>
+              </Link>
             </div>
           </div>
         </div>
