@@ -35,10 +35,10 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-foreground">Phone</p>
                       <a
-                        href="tel:+1234567890"
+                        href="tel:3144528783"
                         className="text-foreground/60 hover:text-primary transition-colors"
                       >
-                        +1 (234) 567-890
+                        (314) 452-8783
                       </a>
                     </div>
                   </div>
@@ -57,10 +57,10 @@ export default function Contact() {
                   <div className="flex gap-4">
                     <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-semibold text-foreground">Address</p>
+                      <p className="font-semibold text-foreground">Location</p>
                       <p className="text-foreground/60">
-                        123 Sleep Street<br />
-                        Dream City, DC 12345
+                        Available Nationwide<br />
+                        Global Shipping Logistics
                       </p>
                     </div>
                   </div>

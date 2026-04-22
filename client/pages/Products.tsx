@@ -98,25 +98,29 @@ export default function Products() {
 
                 {/* Configuration */}
                 <div className="space-y-6">
-                  {/* Size Selector */}
+                  {/* Size Selector Dropdown */}
                   <div className="space-y-3">
                     <label className="text-xs font-bold uppercase tracking-widest text-foreground/60">
                       Select Size
                     </label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {PRODUCTS[0].sizes.map((size) => (
-                        <button
-                          key={size.label}
-                          onClick={() => setSelectedSize(size)}
-                          className={`py-4 rounded-xl text-sm font-bold border-2 transition-all ${
-                            selectedSize.label === size.label
-                              ? "border-accent bg-accent/5 text-accent shadow-md"
-                              : "border-border bg-card text-foreground/60 hover:border-accent/40"
-                          }`}
-                        >
-                          {size.label}
-                        </button>
-                      ))}
+                    <div className="relative group">
+                      <select 
+                        value={selectedSize.label}
+                        onChange={(e) => {
+                          const size = PRODUCTS[0].sizes.find(s => s.label === e.target.value);
+                          if (size) setSelectedSize(size);
+                        }}
+                        className="w-full bg-card border-2 border-border p-4 rounded-xl outline-none appearance-none cursor-pointer text-sm font-bold transition-all hover:border-accent focus:ring-2 focus:ring-accent/20 pr-10"
+                      >
+                        {PRODUCTS[0].sizes.map((size) => (
+                          <option key={size.label} value={size.label}>
+                            {size.label} — ${size.price.toLocaleString()}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-foreground/40 group-hover:text-accent transition-colors">
+                        <ChevronRight className="w-5 h-5 rotate-90" />
+                      </div>
                     </div>
                   </div>
 
