@@ -37,7 +37,7 @@ export default function Navigation() {
             to="/"
             className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
           >
-            Restful
+            EDSBEDS
           </Link>
 
           {/* Desktop Navigation */}
