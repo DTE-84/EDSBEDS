@@ -35,10 +35,10 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-foreground">Phone</p>
                       <a
-                        href="tel:3144528783"
+                        href="tel:+1234567890"
                         className="text-foreground/60 hover:text-primary transition-colors"
                       >
-                        (314) 452-8783
+                        +1 (234) 567-890
                       </a>
                     </div>
                   </div>
@@ -47,20 +47,20 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
                       <a
-                        href="mailto:hello@dte-solutions.icu"
+                        href="mailto:hello@restful.com"
                         className="text-foreground/60 hover:text-primary transition-colors"
                       >
-                        hello@dte-solutions.icu
+                        hello@restful.com
                       </a>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-semibold text-foreground">Location</p>
+                      <p className="font-semibold text-foreground">Address</p>
                       <p className="text-foreground/60">
-                        Available Nationwide<br />
-                        Global Shipping Logistics
+                        123 Sleep Street<br />
+                        Dream City, DC 12345
                       </p>
                     </div>
                   </div>

@@ -1,32 +1,27 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/EDSBEDS/", // Explicitly set base for GitHub Pages subdirectory
   server: {
     host: "::",
     port: 8080,
     fs: {
-      allow: ["./src", "./client", "./shared", "index.html"],
+      allow: ["./client", "./shared", "index.html"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
   build: {
-    outDir: "dist",
-    sourcemap: true, // Ensure source maps are generated for debugging
+    outDir: "dist/spa",
   },
   plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
     },
-  },
-  define: {
-    "process.env.NODE_ENV": '"production"',
   },
 }));
 

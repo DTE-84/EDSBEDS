@@ -21,7 +21,7 @@ export default function About() {
 
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                About EDSBEDS
+                About Restful
               </h1>
               <p className="text-lg text-foreground/70 leading-relaxed mb-6">
                 Our story is just beginning. This page is a placeholder waiting for your
