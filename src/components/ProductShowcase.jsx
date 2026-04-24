@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { ShoppingCart, ChevronRight, Zap, Star, Sparkles, Box, Layers, Layout } from 'lucide-react';
 
+import mattressImg from '../assets/mattress_hero.png';
+import baseImg from '../assets/base_luxury.png';
+import beddingImg from '../assets/bedding_luxury.png';
+import frameImg from '../assets/frame_luxury.png';
+
 const inventory = {
   mattresses: [
     {
@@ -9,6 +14,7 @@ const inventory = {
       tagline: 'Precision-built for absolute comfort.',
       description: '14-inches of high-density cooling memory foam engineered for human anatomy.',
       price: 1299.00,
+      image: mattressImg,
       badge: 'Most Popular',
       icon: <Zap size={14} />
     }
@@ -20,6 +26,7 @@ const inventory = {
       tagline: 'The peak of ergonomic logic.',
       description: 'Zero-gravity positioning with advanced massage nodes and whisper-quiet motors.',
       price: 899.00,
+      image: baseImg,
       badge: 'Bestseller',
       icon: <Layout size={14} />
     },
@@ -29,6 +36,7 @@ const inventory = {
       tagline: 'Essential structural integrity.',
       description: 'Fixed-height high-fidelity foundation with integrated wire-management.',
       price: 499.00,
+      image: baseImg, // Reusing base image or use a specific one if available
       badge: 'Value',
       icon: <Box size={14} />
     }
@@ -40,8 +48,21 @@ const inventory = {
       tagline: 'Cervical alignment, perfected.',
       description: 'Shredded cooling-gel foam that inherits your head shape for zero-strain sleep.',
       price: 99.00,
+      image: beddingImg,
       badge: 'Essential',
       icon: <Layers size={14} />
+    }
+  ],
+  frames: [
+    {
+      id: 'rz-walnut-frame',
+      name: 'Walnut Float Frame',
+      tagline: 'Architectural silhouette.',
+      description: 'Solid walnut frame with a floating aesthetic and structural precision.',
+      price: 1499.00,
+      image: frameImg,
+      badge: 'Designer Choice',
+      icon: <Box size={14} />
     }
   ]
 };
@@ -93,8 +114,12 @@ const ProductShowcase = ({ category = 'mattresses', onSelectProduct, onStartQuiz
                 className="lg:w-1/2 w-full aspect-square bg-[var(--bg-secondary)] rounded-[32px] flex items-center justify-center overflow-hidden cursor-pointer relative shadow-inner"
                 onClick={() => onSelectProduct(item)}
               >
-                 <div className="text-gray-200 text-9xl font-black group-hover:scale-110 group-hover:text-[var(--accent-blue)]/10 transition-all duration-1000 italic select-none">RZ</div>
-                 <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+               <img 
+                 src={item.image} 
+                 alt={item.name}
+                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+               />
+               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--accent-blue)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-2xl shadow-lg border border-gray-100 flex items-center gap-2">
                    <div className="w-2 h-2 bg-[var(--accent-red)] rounded-full animate-pulse" />
                    <span className="text-[10px] font-black uppercase tracking-widest text-[var(--text-main)] font-sans">{item.badge}</span>

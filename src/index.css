@@ -261,3 +261,11 @@ button, .btn {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}

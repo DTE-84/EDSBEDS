@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import ProductShowcase from './components/ProductShowcase';
@@ -8,31 +8,42 @@ import MattressQuiz from './components/MattressQuiz';
 import ReviewTicker from './components/ReviewTicker';
 import AppointmentScheduler from './components/AppointmentScheduler';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
-function App() {
+const Layout = ({ children }) => {
   const location = useLocation();
+  const isQuiz = location.pathname === '/quiz';
+  
+  return (
+    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white">
+      {!isQuiz && <Navigation />}
+      <ScrollToTop />
+      {children}
+      {!isQuiz && <Footer />}
+    </main>
+  );
+};
+
+function App() {
+  const navigate = useNavigate();
 
   const navigateToDetail = (item) => {
-    // If it's the RZ Cool Choice, go to detail
-    if (item.id === 'rz-cool-choice-14') {
-        window.location.href='/EDSBEDS/product/rz-cool-choice-14';
+    if (item?.id === 'rz-cool-choice-14') {
+        navigate('/product/rz-cool-choice-14');
     } else {
         alert("Detailed specs for this model are being finalized. Please contact support for availability.");
     }
   };
 
   return (
-    <main className="min-h-screen selection:bg-[var(--accent-red)] selection:text-white bg-white">
-      {location.pathname !== '/quiz' && <Navigation />}
-      
+    <Layout>
       <div className="w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={
             <div className="animate-in fade-in duration-1000">
               <Hero />
               
-              {/* UPSCALE SPECIALS */}
               <section className="section-padding bg-white relative overflow-hidden">
                 <div className="container">
                   <div className="text-center mb-20">
@@ -47,7 +58,7 @@ function App() {
                           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-6 block font-sans">Seasonal Event</span>
                           <h3 className="text-5xl font-black mb-6 italic tracking-tighter leading-none">Spring <br/><span className="text-[var(--accent-red)]">Specials.</span></h3>
                           <p className="text-xl text-[var(--text-dim)] mb-12 font-medium leading-relaxed font-serif">Save up to 30% on select premium bases and mattresses.</p>
-                          <a href="/EDSBEDS/appointment" className="btn-secondary">Book Private Trial</a>
+                          <button onClick={() => navigate('/appointment')} className="btn-secondary">Book Private Trial</button>
                         </div>
                      </div>
                      
@@ -57,7 +68,7 @@ function App() {
                           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-blue)] mb-6 block font-sans">Worldwide Access</span>
                           <h3 className="text-5xl font-black mb-6 italic tracking-tighter leading-none">Global <br/><span className="text-[var(--accent-blue)]">Delivery.</span></h3>
                           <p className="text-xl text-[var(--text-dim)] mb-12 font-medium leading-relaxed font-serif">Precision-packed sleep solutions delivered directly to your doorstep.</p>
-                          <a href="/EDSBEDS/mattresses" className="btn-primary">View Inventory</a>
+                          <button onClick={() => navigate('/mattresses')} className="btn-primary">View Inventory</button>
                         </div>
                      </div>
                   </div>
@@ -70,22 +81,20 @@ function App() {
 
           <Route path="/mattresses" element={
             <div className="pt-20">
-              <ProductShowcase category="mattresses" onSelectProduct={navigateToDetail} onStartQuiz={() => window.location.href='/EDSBEDS/quiz'} />
+              <ProductShowcase category="mattresses" onSelectProduct={navigateToDetail} onStartQuiz={() => navigate('/quiz')} />
             </div>
           } />
 
           <Route path="/bases" element={<div className="pt-20"><ProductShowcase category="bases" onSelectProduct={navigateToDetail} /></div>} />
           <Route path="/bedding" element={<div className="pt-20"><ProductShowcase category="bedding" onSelectProduct={navigateToDetail} /></div>} />
           <Route path="/frames" element={<div className="pt-20"><ProductShowcase category="frames" onSelectProduct={navigateToDetail} /></div>} />
-          <Route path="/quiz" element={<MattressQuiz onBack={() => window.location.href='/EDSBEDS/mattresses'} onViewProduct={() => window.location.href='/EDSBEDS/product/rz-cool-choice-14'} />} />
-          <Route path="/product/:id" element={<ProductDetail onBack={() => window.location.href='/EDSBEDS/mattresses'} />} />
+          <Route path="/quiz" element={<MattressQuiz onBack={() => navigate('/mattresses')} onViewProduct={() => navigate('/product/rz-cool-choice-14')} />} />
+          <Route path="/product/:id" element={<ProductDetail onBack={() => navigate('/mattresses')} />} />
           <Route path="/appointment" element={<div className="pt-20"><AppointmentScheduler /></div>} />
           <Route path="/reviews" element={<div className="pt-20"><ReviewTicker /></div>} />
         </Routes>
       </div>
-      
-      {location.pathname !== '/quiz' && <Footer />}
-    </main>
+    </Layout>
   );
 }
 

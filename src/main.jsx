@@ -6,7 +6,13 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/EDSBEDS">
+    <BrowserRouter 
+      basename="/EDSBEDS"
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <App />
     </BrowserRouter>
   </StrictMode>,

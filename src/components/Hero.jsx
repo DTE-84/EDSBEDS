@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Award, Clock, MapPin } from 'lucide-react';
-
+import heroImg from '../assets/hero_bed.png';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -26,10 +26,20 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--accent-blue)] via-[#0047AB] to-[#003380]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--text-main)]"
     >
+      {/* High-Fidelity Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroImg} 
+          className="w-full h-full object-cover opacity-40 scale-105 animate-slow-zoom" 
+          alt="Premium Bedroom"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-blue)]/60 via-[var(--text-main)]/80 to-[var(--text-main)]" />
+      </div>
+
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20 z-0">
         <div className="absolute top-20 left-20 w-96 h-96 bg-white rounded-full blur-[100px]" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-[100px]" />
       </div>
