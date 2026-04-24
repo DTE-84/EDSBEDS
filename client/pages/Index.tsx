@@ -13,7 +13,7 @@ export default function Index() {
         <section className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
           {/* Background Image */}
           <img
-            src="/shibainu.png"
+            src="./shibainu.png"
             alt="Designed for Dreaming - Premium Mattress"
             className="absolute inset-0 w-full h-full object-cover"
           />
