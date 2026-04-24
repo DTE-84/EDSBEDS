@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import shibainuImg from "/shibainu.png";
 import { CheckCircle2, Truck, Lock, RotateCcw, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -14,7 +13,7 @@ export default function Index() {
         <section className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
           {/* Background Image */}
           <img
-            src={shibainuImg}
+            src={`${import.meta.env.BASE_URL}shibainu.png`}
             alt="Designed for Dreaming - Premium Mattress"
             className="absolute inset-0 w-full h-full object-cover"
           />
