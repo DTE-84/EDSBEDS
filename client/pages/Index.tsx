@@ -13,7 +13,7 @@ export default function Index() {
         <section className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
           {/* Background Image */}
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F05b324902f4143a8953bb0bca24a511c%2F82d2bed4a3c34272b6c38ae28e33314c?format=webp&width=800&height=1200"
+            src="/shibainu.png"
             alt="Designed for Dreaming - Premium Mattress"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -24,17 +24,7 @@ export default function Index() {
           {/* Centered Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <div className="space-y-6 max-w-2xl">
-              <div className="text-sm md:text-base font-semibold text-white/80 uppercase tracking-widest">
-                Upgrade Your Sleep Setup
-              </div>
-
-              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-                Designed for Dreaming
-              </h1>
-
-              <p className="text-lg text-white/90 max-w-xl mx-auto">
-                Premium mattresses crafted for your perfect night's sleep
-              </p>
+             
 
               <div className="pt-4">
                 <Link
