@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-bold mb-4 block hover:opacity-80 transition-opacity">
-              Restful
+              EDSBEDS
             </Link>
             <p className="text-sm opacity-80 mb-6">
               Premium sleep solutions designed for your comfort and wellness.
@@ -124,8 +124,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@restful.com" className="hover:opacity-100 transition-opacity">
-                  hello@restful.com
+                <a href="mailto:hello@edsbeds.com" className="hover:opacity-100 transition-opacity">
+                  hello@edsbeds.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -138,7 +138,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-70">
-          <p>&copy; 2024 Restful. All rights reserved.</p>
+          <p>&copy; 2024 EDSBEDS. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:opacity-100 transition-opacity">
               Privacy Policy

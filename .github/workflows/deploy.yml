@@ -26,11 +26,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
       - name: Build
-        run: npm run build:client
+        run: pnpm run build:client
       - name: Verify build output
         run: ls -R ./dist
       - name: Setup Pages
