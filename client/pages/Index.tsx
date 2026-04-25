@@ -13,10 +13,11 @@ export default function Index() {
         <section className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
           {/* Background Image */}
           <img
-            src={`${import.meta.env.BASE_URL}shibainu.png`}
-            alt="Designed for Dreaming - Premium Mattress"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+  src={`${import.meta.env.BASE_URL}shibainu.png`}
+  // This resolves to: /EDSBEDS/shibainu.png ✓
+  alt="Designed for Dreaming - Premium Mattress"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
 
           {/* Dark Overlay for Text Readability */}
           <div className="absolute inset-0 bg-black/30" />
