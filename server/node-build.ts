@@ -7,9 +7,10 @@ const port = process.env.PORT || 3000;
 
 // In production, serve the built SPA files
 const __dirname = import.meta.dirname;
-const distPath = path.join(__dirname, "../spa");
+const distPath = path.join(__dirname, "..");
 
-// Serve static files
+// Serve static files - handle both root and subpath for local testing
+app.use("/EDSBEDS", express.static(distPath));
 app.use(express.static(distPath));
 
 // Handle React Router - serve index.html for all non-API routes

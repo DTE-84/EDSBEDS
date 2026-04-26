@@ -167,7 +167,7 @@ const Footer = () => {
         <div className="py-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-[var(--text-dim)]">
-              © {currentYear} EdsBeds. All rights reserved.
+              © {currentYear} DTE SOLUTIONS LLC. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link to="/" className="text-sm text-[var(--text-dim)] hover:text-[var(--accent-blue)] transition-colors">
