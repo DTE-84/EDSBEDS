@@ -23,16 +23,21 @@ export default function Index() {
           <div className="absolute inset-0 bg-black/30" />
 
           {/* Centered Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <div className="space-y-6 max-w-2xl">
-             
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <div className="space-y-6 max-w-3xl">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+                Designed for <span className="text-primary italic">Dreaming</span>
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 max-w-xl mx-auto drop-shadow-md">
+                Experience the peak of sleep technology with our premium patriotic collection.
+              </p>
 
-              <div className="pt-4">
+              <div className="pt-8">
                 <Link
                   to="/mattresses"
-                  className="inline-block px-10 py-4 bg-primary hover:bg-primary/90 text-white font-bold text-lg rounded-lg transition-all transform hover:scale-105"
+                  className="inline-block px-12 py-5 bg-primary hover:bg-primary/90 text-white font-black text-xl rounded-xl transition-all transform hover:scale-105 shadow-2xl uppercase tracking-widest"
                 >
-                  Shop Now
+                  Shop the Collection
                 </Link>
               </div>
             </div>
@@ -40,37 +45,47 @@ export default function Index() {
         </section>
 
         {/* Trust Strip */}
-        <section className="bg-white py-8 md:py-12">
+        <section className="bg-white py-12 md:py-16 border-b border-border">
           <div className="container-max">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
-              <div className="flex flex-col items-center text-center">
-                <Star className="w-6 h-6 text-accent mb-2" />
-                <p className="text-sm font-semibold text-foreground">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <Star className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-sm font-black text-foreground uppercase tracking-widest">
                   1K+ 5-Star Reviews
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <Lock className="w-6 h-6 text-accent mb-2" />
-                <p className="text-sm font-semibold text-foreground">
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <Lock className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-sm font-black text-foreground uppercase tracking-widest">
                   Premium Warranties
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <Truck className="w-6 h-6 text-accent mb-2" />
-                <p className="text-sm font-semibold text-foreground">
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <Truck className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-sm font-black text-foreground uppercase tracking-widest">
                   Free Shipping
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <RotateCcw className="w-6 h-6 text-accent mb-2" />
-                <p className="text-sm font-semibold text-foreground">
-                  Easy Returns
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <RotateCcw className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-sm font-black text-foreground uppercase tracking-widest">
+                  100 Night Trial
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <CheckCircle2 className="w-6 h-6 text-accent mb-2" />
-                <p className="text-sm font-semibold text-foreground">
-                  100% Satisfaction
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <CheckCircle2 className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-sm font-black text-foreground uppercase tracking-widest">
+                  US Manufactured
                 </p>
               </div>
             </div>
