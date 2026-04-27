@@ -25,14 +25,11 @@ export default function Index() {
           {/* Centered Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <div className="space-y-6 max-w-3xl">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
-                Designed for <span className="text-primary italic">Dreaming</span>
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-xl mx-auto drop-shadow-md">
+              <p className="text-xl md:text-2xl text-white/95 max-w-xl mx-auto drop-shadow-md font-medium">
                 Experience the peak of sleep technology with our premium patriotic collection.
               </p>
 
-              <div className="pt-8">
+              <div className="pt-4">
                 <Link
                   to="/mattresses"
                   className="inline-block px-12 py-5 bg-primary hover:bg-primary/90 text-white font-black text-xl rounded-xl transition-all transform hover:scale-105 shadow-2xl uppercase tracking-widest"
