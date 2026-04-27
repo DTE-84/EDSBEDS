@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, Truck, Lock, RotateCcw, Star } from "lucide-react";
+import { CheckCircle2, Truck, Lock, RotateCcw, Star, Sparkles, Zap, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
