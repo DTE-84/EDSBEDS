@@ -138,7 +138,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-70">
-          <p>&copy; 2024 EDSBEDS. All rights reserved.</p>
+          <p>&copy; 2026 DTE SOLUTIONS LLC. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:opacity-100 transition-opacity">
               Privacy Policy
