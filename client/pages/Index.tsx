@@ -104,78 +104,38 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Classic Comfort",
-                  price: "$699",
-                  description: "Perfect entry-level mattress",
-                  features: ["Medium Firmness", "Hypoallergenic", "10-Year Warranty"],
-                },
-                {
-                  name: "Premium Rest",
-                  price: "$1,299",
-                  description: "Premium luxury at fair price",
-                  features: ["Plush Support", "Memory Foam", "20-Year Warranty"],
-                  featured: true,
-                },
-                {
-                  name: "Deluxe Sleep",
-                  price: "$1,899",
-                  description: "The ultimate sleep experience",
-                  features: ["Luxury Materials", "Advanced Cooling", "Lifetime Warranty"],
-                },
-              ].map((product, i) => (
-                <div
-                  key={i}
-                  className={`rounded-xl overflow-hidden transition-all ${
-                    product.featured
-                      ? "ring-2 ring-primary shadow-lg scale-105"
-                      : "border border-border hover:border-primary/20"
-                  } ${product.featured ? "bg-card" : "bg-background"}`}
-                >
-                  {product.featured && (
-                    <div className="bg-primary text-white text-xs font-bold py-2 px-4 text-center">
-                      Most Popular
-                    </div>
-                  )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+...
+            </div>
 
-                  <div className="p-8">
-                    <h3 className="text-xl font-bold text-foreground mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-3xl font-bold text-primary mb-4">
-                      {product.price}
-                    </p>
-                    <p className="text-sm text-foreground/60 mb-6">
-                      {product.description}
-                    </p>
-
-                    <ul className="space-y-2 mb-8">
-                      {product.features.map((feature, j) => (
-                        <li
-                          key={j}
-                          className="flex items-center gap-2 text-sm text-foreground/70"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      to="/product"
-                      className={`w-full block text-center font-bold py-3 rounded-lg transition-all ${
-                        product.featured
-                          ? "bg-primary text-white hover:bg-primary/90"
-                          : "bg-primary/10 text-primary hover:bg-primary/20"
-                      }`}
-                    >
-                      Learn More
-                    </Link>
-                  </div>
+            {/* Quiz Banner */}
+            <div className="relative rounded-[3rem] overflow-hidden bg-primary p-8 md:p-16 text-white text-center md:text-left flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+              <div className="relative z-10 flex-1 space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-[10px] font-black uppercase tracking-[0.3em]">
+                  <Sparkles className="w-3 h-3" />
+                  Free 60-Second Profile
                 </div>
-              ))}
+                <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter leading-tight">
+                    Not Sure Which <br className="hidden md:block"/> Mattress is Right?
+                </h2>
+                <p className="text-lg opacity-80 max-w-xl font-medium">
+                    Take our precision sleep matching quiz and discover the exact technology engineered for your body and habits.
+                </p>
+                <div className="pt-4">
+                    <Link
+                        to="/quiz"
+                        className="inline-flex items-center gap-4 px-10 py-5 bg-white text-primary font-black uppercase tracking-widest rounded-xl hover:bg-white/90 transition-all group"
+                    >
+                        Start Sleep Quiz <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+              </div>
+              <div className="relative z-10 w-full md:w-1/3 flex justify-center">
+                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white/20 flex items-center justify-center p-8 bg-white/5 backdrop-blur-sm shadow-2xl animate-pulse">
+                    <Zap className="w-24 h-24 md:w-32 md:h-32 text-white" />
+                 </div>
+              </div>
             </div>
           </div>
         </section>
